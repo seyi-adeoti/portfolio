@@ -47,7 +47,7 @@ export default function Home() {
         </header>
 
         <Section id="hero" className="grid gap-10 pb-20 pt-4 md:grid-cols-[1.1fr_0.9fr] md:items-end">
-          <motion.div initial="hidden" animate="visible" variants={reveal} transition={{ duration: 0.7 }}>
+          <motion.div initial={false} animate="visible" variants={reveal} transition={{ duration: 0.7 }}>
             <p className="text-sm uppercase tracking-[0.32em] text-accent/80">Senior Frontend Engineer</p>
             <h1 className="mt-6 max-w-3xl text-5xl font-semibold tracking-tight text-white sm:text-6xl">
               Building scalable fintech and enterprise platforms used by 100,000+ users.
@@ -72,7 +72,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 32 }}
+            initial={false}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
             className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-glow backdrop-blur-xl"
