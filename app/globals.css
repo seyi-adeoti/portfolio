@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background-color: #09090f;
+  color: #f8fafc;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
+  font-variant-ligatures: common-ligatures;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: radial-gradient(circle at top, rgba(94, 234, 212, 0.14), transparent 28%),
+    radial-gradient(circle at 80% 10%, rgba(79, 70, 229, 0.14), transparent 26%),
+    #09090f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(94, 234, 212, 0.24);
+  color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul {
+  margin: 0;
+}
+
+p {
+  color: #d1d5db;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+img,
+svg {
+  display: block;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-accent/60;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm text-white transition hover:border-accent/70 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-accent/40;
+}
+
+.section-card {
+  @apply rounded-3xl border border-white/10 bg-white/5 p-8 shadow-glow backdrop-blur-xl;
+}
+
+.text-muted {
+  color: #94a3b8;
+}
+
+.section-heading {
+  @apply text-3xl font-semibold tracking-tight text-white sm:text-4xl;
+}
+
+.section-subtitle {
+  @apply mt-4 max-w-3xl text-base leading-8 text-slate-300;
+}

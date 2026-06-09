@@ -1,0 +1,4 @@
+- [x] Project scaffold created with Next.js, TypeScript, Tailwind CSS, Framer Motion, and custom reusable components.
+- [x] Validate the homepage builds successfully.
+- [x] Keep the portfolio focused on senior software engineering, international relocation, and visa sponsorship.
+- [x] Ensure the project includes a README and resume placeholder.
