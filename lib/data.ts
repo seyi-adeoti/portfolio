@@ -1,4 +1,4 @@
-import { ArrowUpRight, ShieldCheck, Sparkles, Truck } from 'lucide-react';
+import { ArrowUpRight, Bolt, Layers, ServerCog, ShieldCheck, Sparkles, Truck, Users } from 'lucide-react';
 
 export const navItems = [
   { label: 'Case Studies', href: '#case-studies' },
@@ -16,6 +16,74 @@ export const metrics = [
   { value: '5+', label: 'Years Experience' },
   { value: '90%', label: 'Test Coverage' },
   { value: '15+', label: 'API Integrations' },
+];
+
+export const proofPoints = [
+  {
+    title: 'CI/CD & quality gates',
+    description: 'Automated pipelines with linting, test suites, deploy previews, and production-safe rollouts.',
+    icon: ServerCog,
+  },
+  {
+    title: 'Security & compliance',
+    description: 'Secure architecture review, SSO, encryption, and audit-ready delivery for enterprise systems.',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Performance at scale',
+    description: 'Performance-first engineering for high-traffic platforms with observability and load optimization.',
+    icon: Bolt,
+  },
+  {
+    title: 'Cross-team delivery',
+    description: 'Aligned product, design, and ops with engineering standards for dependable launch execution.',
+    icon: Users,
+  },
+];
+
+export const processSteps = [
+  {
+    title: 'Discovery & alignment',
+    description: 'Align product outcomes, risk tolerance, and business value before choosing the architecture path.',
+    icon: Layers,
+  },
+  {
+    title: 'Architecture & planning',
+    description: 'Define service boundaries, frontend patterns, and quality guardrails for scalable delivery.',
+    icon: ServerCog,
+  },
+  {
+    title: 'Build & validation',
+    description: 'Ship iteratively with strong testing, code reviews, and performance verification at each milestone.',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Operate & improve',
+    description: 'Embed observability, CI/CD, and feedback loops to keep systems resilient under real usage.',
+    icon: Bolt,
+  },
+];
+
+export const whyHireMe = [
+  {
+    title: 'Enterprise-scale execution',
+    text: 'Delivering production systems with robust performance, compliance, and operational reliability.',
+  },
+  {
+    title: 'Leadership beyond code',
+    text: 'Leading architecture decisions, mentoring engineers, and coordinating cross-functional delivery.',
+  },
+  {
+    title: 'Relocation-ready and global',
+    text: 'Experienced with distributed teams and open to relocation, visa sponsorship, and hybrid workflows.',
+  },
+];
+
+export const lookingFor = [
+  'Senior engineering roles',
+  'Relocation & visa sponsorship',
+  'Remote / hybrid collaboration',
+  'Product-led enterprise teams',
 ];
 
 export const caseStudies = [

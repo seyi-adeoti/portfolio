@@ -1,8 +1,8 @@
 'use client';
 
-import { ArrowUpRight, ExternalLink, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Button, LinkButton } from '../components/ui/button';
+import { LinkButton } from '../components/ui/button';
 import { Card } from '../components/ui/card';
 import { Section } from '../components/ui/section';
 import { SectionHeading } from '../components/ui/heading';
@@ -14,9 +14,13 @@ import {
   githubProjects,
   heroBadges,
   leadershipItems,
+  lookingFor,
   metrics,
   navItems,
+  processSteps,
+  proofPoints,
   testimonials,
+  whyHireMe,
 } from '../lib/data';
 
 const reveal = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
@@ -106,6 +110,30 @@ export default function Home() {
           </div>
         </Section>
 
+        <Section id="proof-points" className="space-y-10">
+          <div className="space-y-3">
+            <SectionHeading>Engineering proof points</SectionHeading>
+            <p className="section-subtitle">
+              Evidence of the technical practices and platform maturity that support enterprise delivery.
+            </p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {proofPoints.map((point) => (
+              <motion.div key={point.title} whileHover={{ y: -4 }} className="transition">
+                <Card className="space-y-4 p-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-accent/10 text-accent">
+                    <point.icon className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-white">{point.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-slate-300">{point.description}</p>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </Section>
+
         <Section id="case-studies" className="space-y-10">
           <div className="space-y-3">
             <div className="rounded-full bg-white/5 px-4 py-2 text-sm uppercase tracking-[0.26em] text-accent">Engineering case studies</div>
@@ -146,6 +174,13 @@ export default function Home() {
                     Lessons learned: {caseStudy.lessons}
                   </p>
                 </div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {caseStudy.technologies.map((tech) => (
+                    <Tag key={tech} className="bg-white/5 text-slate-300">
+                      {tech}
+                    </Tag>
+                  ))}
+                </div>
               </Card>
             ))}
           </div>
@@ -164,6 +199,30 @@ export default function Home() {
                 <h3 className="text-xl font-semibold text-white">{item.title}</h3>
                 <p className="text-sm leading-7 text-slate-300">{item.description}</p>
               </Card>
+            ))}
+          </div>
+        </Section>
+
+        <Section id="process" className="space-y-10">
+          <div className="space-y-3">
+            <SectionHeading>How I work</SectionHeading>
+            <p className="section-subtitle">
+              A practical delivery rhythm for enterprise engineering, from discovery through operations.
+            </p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {processSteps.map((step) => (
+              <motion.div key={step.title} whileHover={{ y: -4 }} className="transition">
+                <Card className="space-y-4 p-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-white/5 text-accent">
+                    <step.icon className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-white">{step.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-slate-300">{step.description}</p>
+                  </div>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </Section>
@@ -239,12 +298,29 @@ export default function Home() {
               <LinkButton href="#contact">Let’s talk</LinkButton>
             </div>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {['Relocation', 'Visa sponsorship', 'Remote', 'Hybrid'].map((item) => (
+              {lookingFor.map((item) => (
                 <div key={item} className="rounded-3xl border border-white/10 bg-white/5 p-4 text-sm text-slate-300">
                   {item}
                 </div>
               ))}
             </div>
+          </div>
+        </Section>
+
+        <Section id="why-hire" className="space-y-10">
+          <div className="space-y-3">
+            <SectionHeading>Why hire me?</SectionHeading>
+            <p className="section-subtitle">
+              This is the leadership, delivery, and relocation-ready capability that makes a senior engineering hire worth the commitment.
+            </p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {whyHireMe.map((item) => (
+              <Card key={item.title} className="space-y-4 p-6">
+                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+                <p className="text-sm leading-7 text-slate-300">{item.text}</p>
+              </Card>
+            ))}
           </div>
         </Section>
 
