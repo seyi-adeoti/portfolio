@@ -65,7 +65,7 @@ export default function Home() {
               <LinkButton href="#case-studies" className="btn-primary shadow-glow">
                 View Engineering Case Studies
               </LinkButton>
-              <LinkButton href="/resume.pdf" target="_blank">
+              <LinkButton href="/ADEOTI-SEYI-CV.pdf" target="_blank">
                 Download Resume
               </LinkButton>
             </div>
