@@ -34,7 +34,7 @@ export default function Home() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-3 text-sm text-slate-300">
               <span className="rounded-full border border-accent/30 bg-white/5 px-3 py-1 font-medium text-accent">Senior Frontend Engineer</span>
-              <span>Open to international relocation & visa sponsorship</span>
+              <span>Open to local and international opportunities with relocation & visa support</span>
             </div>
             <nav className="hidden items-center gap-4 text-sm text-slate-300 md:flex">
               {navItems.map((item) => (
@@ -53,7 +53,7 @@ export default function Home() {
               Building scalable fintech and enterprise platforms used by 100,000+ users.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300">
-              I deliver secure, high-performance experiences across banking, logistics, and platform engineering. My work spans React, TypeScript, Next.js, Java, Spring Boot, AWS,
+              I deliver secure, high-performance experiences across banking, logistics, and platform engineering for both local and global product teams. My work spans React, TypeScript, Next.js, Java, Spring Boot, AWS,
               Docker, Kubernetes, and enterprise-grade systems.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -82,11 +82,11 @@ export default function Home() {
                 <p className="text-sm uppercase tracking-[0.28em] text-slate-500">Featured impact</p>
                 <p className="mt-2 text-3xl font-semibold text-white">Enterprise scale, security, and delivery</p>
               </div>
-              <div className="rounded-2xl bg-slate-900/70 px-4 py-2 text-sm text-slate-200">Global teams</div>
+              <div className="rounded-2xl bg-slate-900/70 px-4 py-2 text-sm text-slate-200">Local + global teams</div>
             </div>
             <div className="grid gap-4 text-sm leading-7 text-slate-300">
               <p>
-                I help international teams define architecture, launch secure fintech flows, and build reliable logistics systems while maintaining exceptional engineering quality.
+                I help local and international teams define architecture, launch secure fintech flows, and build reliable logistics systems while maintaining exceptional engineering quality.
               </p>
               <p>
                 My approach balances product speed with long-term maintainability, operational maturity, and measurable business value.
@@ -292,8 +292,8 @@ export default function Home() {
           <div className="rounded-3xl border border-accent/20 bg-gradient-to-br from-slate-950/80 to-slate-900/80 p-8 shadow-glow">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <p className="text-sm uppercase tracking-[0.2em] text-accent">Available for international opportunities</p>
-                <h3 className="mt-3 text-3xl font-semibold text-white">Open to relocation, visa sponsorship, remote, and hybrid roles.</h3>
+                <p className="text-sm uppercase tracking-[0.2em] text-accent">Available for local and international opportunities</p>
+                <h3 className="mt-3 text-3xl font-semibold text-white">Open to local, remote, hybrid, relocation, and visa sponsorship roles.</h3>
               </div>
               <LinkButton href="#contact">Let’s talk</LinkButton>
             </div>

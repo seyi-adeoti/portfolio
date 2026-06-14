@@ -74,13 +74,13 @@ export const whyHireMe = [
     text: 'Leading architecture decisions, mentoring engineers, and coordinating cross-functional delivery.',
   },
   {
-    title: 'Relocation-ready and global',
-    text: 'Experienced with distributed teams and open to relocation, visa sponsorship, and hybrid workflows.',
+    title: 'Local and global readiness',
+    text: 'Experienced with local market delivery and distributed teams, open to relocation, visa sponsorship, and hybrid workflows.',
   },
 ];
 
 export const lookingFor = [
-  'Senior engineering roles',
+  'Local and international senior engineering roles',
   'Relocation & visa sponsorship',
   'Remote / hybrid collaboration',
   'Product-led enterprise teams',

@@ -1,6 +1,6 @@
 # Adeoti Oluwaseyi Olajuwon — Senior Frontend Portfolio
 
-A custom Next.js portfolio site built for senior software engineering positioning, international relocation, and visa sponsorship opportunities.
+A custom Next.js portfolio site built for senior software engineering positioning, local and international opportunities, and visa sponsorship support.
 
 ## Development
 
