@@ -1,7 +1,5 @@
-'use client';
-
 import { ArrowUpRight, Github, Linkedin, Mail, Sparkles } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { MotionDiv } from '../components/ui/client-motion';
 import { LinkButton } from '../components/ui/button';
 import { Card } from '../components/ui/card';
 import { Section } from '../components/ui/section';
@@ -48,7 +46,7 @@ export default function Home() {
         </header>
 
         <Section id="hero" className="grid gap-10 pb-20 pt-4 md:grid-cols-[1.1fr_0.9fr] md:items-end">
-          <motion.div initial={false} animate="visible" variants={reveal} transition={{ duration: 0.7 }}>
+          <MotionDiv initial={false} animate="visible" variants={reveal} transition={{ duration: 0.7 }}>
             <p className="text-sm uppercase tracking-[0.32em] text-accent/80">Senior Frontend Engineer</p>
             <h1 className="mt-6 max-w-3xl text-5xl font-semibold tracking-tight text-white sm:text-6xl">
               Building scalable fintech and enterprise platforms used by 100,000+ users.
@@ -70,9 +68,9 @@ export default function Home() {
                 Download Resume
               </LinkButton>
             </div>
-          </motion.div>
+          </MotionDiv>
 
-          <motion.div
+          <MotionDiv
             initial={false}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
@@ -93,7 +91,7 @@ export default function Home() {
                 My approach balances product speed with long-term maintainability, operational maturity, and measurable business value.
               </p>
             </div>
-          </motion.div>
+          </MotionDiv>
         </Section>
 
         <Section id="metrics" className="space-y-8">
@@ -120,7 +118,7 @@ export default function Home() {
           </div>
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {proofPoints.map((point) => (
-              <motion.div key={point.title} whileHover={{ y: -4 }} className="transition">
+              <MotionDiv key={point.title} whileHover={{ y: -4 }} className="transition">
                 <Card className="space-y-4 p-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-accent/10 text-accent">
                     <point.icon className="h-6 w-6" />
@@ -130,7 +128,7 @@ export default function Home() {
                     <p className="mt-3 text-sm leading-7 text-slate-300">{point.description}</p>
                   </div>
                 </Card>
-              </motion.div>
+              </MotionDiv>
             ))}
           </div>
         </Section>
@@ -248,7 +246,7 @@ export default function Home() {
           </div>
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {processSteps.map((step) => (
-              <motion.div key={step.title} whileHover={{ y: -4 }} className="transition">
+              <MotionDiv key={step.title} whileHover={{ y: -4 }} className="transition">
                 <Card className="space-y-4 p-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-white/5 text-accent">
                     <step.icon className="h-6 w-6" />
@@ -258,7 +256,7 @@ export default function Home() {
                     <p className="mt-3 text-sm leading-7 text-slate-300">{step.description}</p>
                   </div>
                 </Card>
-              </motion.div>
+              </MotionDiv>
             ))}
           </div>
         </Section>
