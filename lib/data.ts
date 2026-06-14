@@ -137,6 +137,36 @@ export const caseStudies = [
   },
 ];
 
+export const clientOutcomes = [
+  {
+    title: 'Trusted logistics marketplace',
+    subtitle: 'Short-term startup delivery in Hungary',
+    description:
+      'Built a fast-launch order-to-rider matching app for a logistic startup, using trusted driver verification, document submission, and proof-of-address checks.',
+    impact:
+      'Helped the startup achieve a reliable delivery flow that matched orders to verified riders and improved operational trust from the first rollout.',
+    technologies: ['React', 'TypeScript', 'Realtime APIs', 'Driver verification', 'Logistics workflows'],
+  },
+  {
+    title: 'Loan application and approval workflow',
+    subtitle: 'Sterling financial delivery',
+    description:
+      'Delivered a loan application platform with intake, inputter handoff, and approval flow to support faster decision-making and better branch coordination.',
+    impact:
+      'Streamlined loan operations and improved approval visibility while preserving compliance controls and auditability.',
+    technologies: ['React', 'Spring Boot', 'Workflow automation', 'Loan origination', 'Branch operations'],
+  },
+  {
+    title: 'Branch account opening and card portal',
+    subtitle: 'Alternative bank channel platform',
+    description:
+      'Built an account opening channel used across branches and a card portal system that tracked cards, supported branch operations, and integrated with takaful insurance workflows.',
+    impact:
+      'Unified account onboarding and card management for all branches, making branch channels more consistent and easier to operate.',
+    technologies: ['React', 'Branch integration', 'Card operations', 'Account onboarding', 'Insurance integration'],
+  },
+];
+
 export const architectureHighlights = [
   {
     title: 'Frontend Architecture',
@@ -221,7 +251,6 @@ export const testimonials = [
 ];
 
 export const contactLinks = [
-  { label: 'Email', value: 'hello@adeoti.dev', href: 'mailto:hello@adeoti.dev' },
-  { label: 'LinkedIn', value: 'linkedin.com/in/adeotisolajuwon', href: 'https://linkedin.com/in/adeotisolajuwon' },
-  { label: 'GitHub', value: 'github.com/adeoti', href: 'https://github.com/adeoti' },
+  { label: 'Email', value: 'oluwaseyiadeoti825@gmail.com', href: 'mailto:oluwaseyiadeoti825@gmail.com' },
+  { label: 'GitHub', value: 'github.com/seyi-adeoti', href: 'https://github.com/seyi-adeoti' },
 ];

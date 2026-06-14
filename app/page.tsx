@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowUpRight, Github, Linkedin, Mail, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { LinkButton } from '../components/ui/button';
 import { Card } from '../components/ui/card';
@@ -10,6 +10,7 @@ import { Tag } from '../components/ui/tag';
 import {
   architectureHighlights,
   caseStudies,
+  clientOutcomes,
   contactLinks,
   githubProjects,
   heroBadges,
@@ -185,7 +186,42 @@ export default function Home() {
             ))}
           </div>
         </Section>
-
+        <Section id="client-outcomes" className="space-y-10">
+          <div className="space-y-3">
+            <SectionHeading>Client outcomes</SectionHeading>
+            <p className="section-subtitle">
+              Local and operational delivery stories from startups, branch banking, and cross-channel platforms.
+            </p>
+          </div>
+          <div className="grid gap-6 xl:grid-cols-3">
+            {clientOutcomes.map((item) => (
+              <Card key={item.title} className="space-y-6 p-6">
+                <div className="flex items-center gap-3 text-accent">
+                  <Sparkles className="h-5 w-5" />
+                  <span className="text-sm uppercase tracking-[0.2em]">Client outcome</span>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-2xl font-semibold text-white">{item.title}</h3>
+                  <p className="text-sm text-slate-400">{item.subtitle}</p>
+                </div>
+                <div className="space-y-4 text-sm text-slate-300">
+                  <p>{item.description}</p>
+                  <div>
+                    <p className="font-semibold text-white">Impact</p>
+                    <p className="mt-2">{item.impact}</p>
+                  </div>
+                </div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {item.technologies.map((tech) => (
+                    <Tag key={tech} className="bg-white/5 text-slate-300">
+                      {tech}
+                    </Tag>
+                  ))}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </Section>
         <Section id="architecture" className="space-y-10">
           <div className="space-y-3">
             <SectionHeading>Architecture showcase</SectionHeading>
@@ -328,10 +364,10 @@ export default function Home() {
           <div className="space-y-3">
             <SectionHeading>Contact</SectionHeading>
             <p className="section-subtitle">
-              Interested in building scalable software together? Connect over email or LinkedIn and let’s shape the next enterprise platform.
+              Interested in building scalable software together? Connect over email or GitHub and let’s shape the next enterprise platform.
             </p>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
             {contactLinks.map((item) => (
               <Card key={item.label} className="flex flex-col justify-between p-6">
                 <div className="flex items-center gap-3 text-accent">
