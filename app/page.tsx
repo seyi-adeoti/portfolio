@@ -18,6 +18,7 @@ import {
   navItems,
   processSteps,
   proofPoints,
+  sideProjects,
   testimonials,
   whyHireMe,
 } from '../lib/data';
@@ -285,20 +286,63 @@ export default function Home() {
               Flagship repositories that demonstrate enterprise fintech architecture, shared component systems, and service-oriented engineering practices.
             </p>
           </div>
-          <div className="grid gap-5 xl:grid-cols-3">
+          <div className="grid gap-5 xl:grid-cols-2">
             {githubProjects.map((project) => (
-              <Card key={project.title} className="space-y-4 p-6">
-                <div className="flex items-center justify-between gap-3">
-                  <div>
-                    <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-                    <p className="mt-2 text-sm text-slate-400">{project.description}</p>
+              <a key={project.title} href={project.href} target="_blank" rel="noopener noreferrer" className="transition hover:opacity-80">
+                <Card className="space-y-4 p-6 h-full">
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <h3 className="text-xl font-semibold text-white">{project.title}</h3>
+                      <p className="mt-2 text-sm text-slate-400">{project.description}</p>
+                    </div>
+                    <Github className="h-6 w-6 text-accent flex-shrink-0" />
                   </div>
-                  <Github className="h-6 w-6 text-accent" />
+                  <div className="flex flex-wrap gap-2">
+                    {project.highlights.map((item) => (
+                      <Tag key={item}>{item}</Tag>
+                    ))}
+                  </div>
+                  <div className="flex items-center gap-2 pt-2 text-sm text-accent font-semibold">
+                    View on GitHub <ArrowUpRight className="h-4 w-4" />
+                  </div>
+                </Card>
+              </a>
+            ))}
+          </div>
+        </Section>
+
+        <Section id="side-projects" className="space-y-10">
+          <div className="space-y-3">
+            <SectionHeading>Featured side projects</SectionHeading>
+            <p className="section-subtitle">
+              Current projects showcasing full-stack capabilities and real-world product thinking.
+            </p>
+          </div>
+          <div className="grid gap-5 xl:grid-cols-1">
+            {sideProjects.map((project) => (
+              <Card key={project.title} className="space-y-6 p-6">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
+                      <p className="mt-1 text-sm text-slate-400 font-medium">{project.subtitle}</p>
+                    </div>
+                    {project.live && <div className="rounded-full bg-green-500/20 px-3 py-1 text-xs uppercase tracking-[0.2em] text-green-400 font-semibold">Live</div>}
+                  </div>
+                  <p className="text-base leading-7 text-slate-300">{project.description}</p>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {project.highlights.map((item) => (
                     <Tag key={item}>{item}</Tag>
                   ))}
+                </div>
+                <div className="flex flex-col gap-3 pt-2 sm:flex-row">
+                  <LinkButton href={project.href} target="_blank" className="btn-primary flex-1 shadow-glow">
+                    View Live <ArrowUpRight className="ml-2 h-4 w-4" />
+                  </LinkButton>
+                  <LinkButton href={project.github} target="_blank" className="flex-1">
+                    GitHub <ArrowUpRight className="ml-2 h-4 w-4" />
+                  </LinkButton>
                 </div>
               </Card>
             ))}
@@ -362,24 +406,31 @@ export default function Home() {
           <div className="space-y-3">
             <SectionHeading>Contact</SectionHeading>
             <p className="section-subtitle">
-              Interested in building scalable software together? Connect over email or GitHub and let’s shape the next enterprise platform.
+              Interested in building scalable software together? Reach out via email, GitHub, or LinkedIn and let's shape the next enterprise platform.
             </p>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
-            {contactLinks.map((item) => (
-              <Card key={item.label} className="flex flex-col justify-between p-6">
-                <div className="flex items-center gap-3 text-accent">
-                  {item.label === 'Email' ? <Mail className="h-5 w-5" /> : item.label === 'LinkedIn' ? <Linkedin className="h-5 w-5" /> : <Github className="h-5 w-5" />}
-                  <span className="font-semibold text-white">{item.label}</span>
-                </div>
-                <div className="mt-4 space-y-2">
-                  <p className="text-sm text-slate-300">{item.value}</p>
-                  <LinkButton href={item.href} target="_blank" className="w-fit text-sm">
-                    Reach out <ArrowUpRight className="ml-2 h-4 w-4" />
-                  </LinkButton>
-                </div>
-              </Card>
-            ))}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {contactLinks.map((item) => {
+              let IconComponent = Mail;
+              if (item.label === 'GitHub') IconComponent = Github;
+              if (item.label === 'LinkedIn') IconComponent = Linkedin;
+              return (
+                <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className="transition hover:opacity-80">
+                  <Card className="flex flex-col justify-between p-6 h-full">
+                    <div className="flex items-center gap-3 text-accent">
+                      <IconComponent className="h-5 w-5" />
+                      <span className="font-semibold text-white">{item.label}</span>
+                    </div>
+                    <div className="mt-4 space-y-2">
+                      <p className="text-sm text-slate-300">{item.value}</p>
+                      <div className="flex items-center gap-1 text-sm text-accent font-semibold">
+                        Connect <ArrowUpRight className="h-4 w-4" />
+                      </div>
+                    </div>
+                  </Card>
+                </a>
+              );
+            })}
           </div>
         </Section>
       </div>

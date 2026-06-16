@@ -5,6 +5,7 @@ export const navItems = [
   { label: 'Architecture', href: '#architecture' },
   { label: 'Leadership', href: '#leadership' },
   { label: 'GitHub', href: '#github' },
+  { label: 'Side Projects', href: '#side-projects' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -224,16 +225,25 @@ export const githubProjects = [
     title: 'FinCore',
     description: 'Enterprise fintech platform with secure payment workflows and high-throughput architecture.',
     highlights: ['React', 'Spring Boot', 'PostgreSQL', 'AWS', 'Kubernetes'],
+    href: 'https://github.com/seyi-adeoti/fincore',
   },
   {
     title: 'Enterprise Design System',
     description: 'Shared component library with Storybook, design tokens, and accessibility-first patterns.',
     highlights: ['React', 'Storybook', 'TypeScript', 'Tailwind CSS', 'Testing'],
+    href: 'https://github.com/seyi-adeoti/enterprise-design-system',
   },
+];
+
+export const sideProjects = [
   {
-    title: 'Microservices Demo',
-    description: 'Spring Boot services containerized with Docker, integrated with Redis and API gateways.',
-    highlights: ['Spring Boot', 'Docker', 'Redis', 'Microservices', 'CI/CD'],
+    title: 'Lekture',
+    subtitle: 'Tech Learning Marketplace',
+    description: 'Connect students and teachers to learn tech skills. Realtime matching, course discovery, and video integration.',
+    highlights: ['React', 'TypeScript', 'Next.js', 'Real-time API', 'Responsive Design'],
+    href: 'https://lekture-fe.vercel.app/',
+    github: 'https://github.com/seyi-adeoti/lekture',
+    live: true,
   },
 ];
 
@@ -251,6 +261,7 @@ export const testimonials = [
 ];
 
 export const contactLinks = [
-  { label: 'Email', value: 'oluwaseyiadeoti825@gmail.com', href: 'mailto:oluwaseyiadeoti825@gmail.com' },
-  { label: 'GitHub', value: 'github.com/seyi-adeoti', href: 'https://github.com/seyi-adeoti' },
+  { label: 'Email', value: 'oluwaseyiadeoti825@gmail.com', href: 'mailto:oluwaseyiadeoti825@gmail.com', icon: 'Mail' },
+  { label: 'GitHub', value: 'github.com/seyi-adeoti', href: 'https://github.com/seyi-adeoti', icon: 'Github' },
+  // { label: 'LinkedIn', value: 'linkedin.com/in/seyi-adeoti', href: 'https://linkedin.com/in/seyi-adeoti', icon: 'Linkedin' },
 ];
