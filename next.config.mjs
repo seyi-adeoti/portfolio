@@ -3,6 +3,7 @@ const nextConfig = {
   images: {
     remotePatterns: [],
   },
+  turbopack: {},
   webpack(config, { isServer }) {
     if (isServer) {
       config.output.chunkFilename = '[name].js';
