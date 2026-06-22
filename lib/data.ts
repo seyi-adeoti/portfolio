@@ -1,4 +1,4 @@
-import { ArrowUpRight, Bolt, Layers, ServerCog, ShieldCheck, Sparkles, Truck, Users } from 'lucide-react';
+import { ArrowUpRight, Bolt, Layers, ServerCog, ShieldCheck, Sparkles, Truck, Users, Wallet, FileText } from 'lucide-react';
 
 export const navItems = [
   { label: 'Case Studies', href: '#case-studies' },
@@ -9,14 +9,14 @@ export const navItems = [
   { label: 'Contact', href: '#contact' },
 ];
 
-export const heroBadges = ['React', 'TypeScript', 'Next.js', 'Angular', 'Java', 'Spring Boot', 'AWS'];
+export const heroBadges = ['React', 'TypeScript', 'Next.js', 'Java', 'Spring Boot', 'Kafka', 'AWS'];
 
 export const metrics = [
   { value: '100K+', label: 'Users Served' },
-  { value: '35%', label: 'Performance Improvement' },
+  { value: '45%', label: 'Faster Transaction Processing' },
   { value: '5+', label: 'Years Experience' },
   { value: '90%', label: 'Test Coverage' },
-  { value: '15+', label: 'API Integrations' },
+  { value: '20+', label: 'APIs Built & Integrated' },
 ];
 
 export const proofPoints = [
@@ -27,12 +27,12 @@ export const proofPoints = [
   },
   {
     title: 'Security & compliance',
-    description: 'Secure architecture review, SSO, encryption, and audit-ready delivery for enterprise systems.',
+    description: 'Secure architecture review, CBN-compliant KYC tiers, AML flagging, audit trails, and encryption for regulated financial systems.',
     icon: ShieldCheck,
   },
   {
     title: 'Performance at scale',
-    description: 'Performance-first engineering for high-traffic platforms with observability and load optimization.',
+    description: 'Performance-first engineering for high-traffic platforms with Redis caching, Kafka async processing, and observability.',
     icon: Bolt,
   },
   {
@@ -67,16 +67,16 @@ export const processSteps = [
 
 export const whyHireMe = [
   {
-    title: 'Enterprise-scale execution',
-    text: 'Delivering production systems with robust performance, compliance, and operational reliability.',
+    title: 'Fintech depth, end-to-end',
+    text: 'From CBN-compliant wallet infrastructure and AML systems to FIRS tax APIs and double-entry ledgers — I build the financial plumbing that startups and banks depend on.',
   },
   {
     title: 'Leadership beyond code',
-    text: 'Leading architecture decisions, mentoring engineers, and coordinating cross-functional delivery.',
+    text: 'Leading architecture decisions, mentoring engineers, and coordinating cross-functional delivery for production systems.',
   },
   {
     title: 'Local and global readiness',
-    text: 'Experienced with local market delivery and distributed teams, open to relocation, visa sponsorship, and hybrid workflows.',
+    text: 'Experienced with Nigerian regulatory systems (CBN, FIRS, NIN/BVN KYC) and distributed global teams. Open to relocation, visa sponsorship, and remote collaboration.',
   },
 ];
 
@@ -84,10 +84,44 @@ export const lookingFor = [
   'Local and international senior engineering roles',
   'Relocation & visa sponsorship',
   'Remote / hybrid collaboration',
-  'Product-led enterprise teams',
+  'Product-led fintech and enterprise teams',
 ];
 
 export const caseStudies = [
+  // ── BACKEND CASE STUDIES ─────────────────────────────────────────────────
+  {
+    title: 'CBN-Compliant Wallet System',
+    subtitle: 'Core banking infrastructure with KYC tiers, AML, and double-entry ledger',
+    problem:
+      'Building a production-grade wallet for a Nigerian fintech required full CBN regulatory compliance: tiered KYC limits, AML transaction monitoring, idempotent transfers, and a real GL ledger — not just a balance field.',
+    architecture:
+      'Spring Boot microservice with PostgreSQL as the ledger store, Redis for session management, rate limiting, and account detail caching, and Kafka for async transaction processing. Wallet operations run through a double-entry GL engine; every debit has a corresponding credit with no exceptions.',
+    technologies: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Redis', 'Apache Kafka', 'Docker', 'Swagger'],
+    decisions:
+      'Idempotency keys on every transfer endpoint prevent duplicate processing under retries or network failure. CBN daily and single transaction limits are enforced per tier at the service layer before any ledger write. AML flagging runs as a Kafka consumer so it never blocks the transaction response path.',
+    impact:
+      'Full KYC tier system (Tier 1/2/3) with enforced limits, AML flagging on transactions above ₦5m, interbank transfer simulation with status enquiry and timeout handling, and a regulatory report generator — all with a complete audit trail on every action.',
+    lessons:
+      'Nigerian fintech compliance is not a layer you add later. Encoding CBN rules at the domain model level — not in validation annotations — keeps the system correct as regulations change.',
+    icon: Wallet,
+  },
+  {
+    title: 'Tax Computation Engine & FIRS Integration',
+    subtitle: 'Multi-tenant compliance platform for accountants, users, and regulators at ComplyDesk',
+    problem:
+      'ComplyDesk needed a backend engine that could accurately process multi-tier income brackets, statutory reliefs, and deductions for individual and corporate clients — then file directly with FIRS, with zero tolerance for calculation errors and full audit traceability.',
+    architecture:
+      'A multi-tenant Spring Boot service with role-scoped access for three actor types: accountants (file on behalf of clients), users (self-service tax computation and submission), and admin (regulatory oversight and report generation). FIRS API integration sits behind an adapter layer with retry logic, reconciliation workflows, and idempotent submission tracking.',
+    technologies: ['Java 11', 'Spring Boot', 'PostgreSQL', 'REST APIs', 'Docker', 'Git', 'FIRS API'],
+    decisions:
+      'Tenant isolation enforced at the data layer — each accountant firm operates in a scoped context with no data bleed between clients. Statutory rules are encoded as versioned domain objects so that tax year changes require configuration updates, not code changes. Immutable audit logs are written before and after every computation for full regulatory traceability.',
+    impact:
+      'Eliminated manual reconciliation cycles between internal ledgers and FIRS data sources. Compliance defect rate dropped significantly. The platform handled high volumes of tax records with consistent accuracy and passed regulatory inspection readiness checks on first review.',
+    lessons:
+      'Tax computation is a domain problem, not a math problem. Translating statutory language into maintainable business logic requires embedding domain experts in the engineering process, not just reading the legislation.',
+    icon: FileText,
+  },
+  // ── FRONTEND CASE STUDIES ────────────────────────────────────────────────
   {
     title: 'Enterprise Banking Platform',
     subtitle: 'Driving secure, scalable banking experiences for 100K+ users',
@@ -170,29 +204,29 @@ export const clientOutcomes = [
 
 export const architectureHighlights = [
   {
+    title: 'CBN Compliance Layer',
+    description:
+      'KYC tier enforcement, CBN daily/single transaction limits, AML flagging above ₦5m, and idempotency controls built at the domain layer — not as afterthoughts.',
+  },
+  {
+    title: 'Event-Driven Fintech',
+    description:
+      'Kafka-backed async transaction processing and notification delivery, keeping the critical path fast while guaranteeing durable message delivery.',
+  },
+  {
+    title: 'Multi-Tenant Architecture',
+    description:
+      'Tenant-scoped data isolation for SaaS platforms serving accountants, end users, and admin roles — with dynamic routing, caching, and role-scoped access per tenant.',
+  },
+  {
     title: 'Frontend Architecture',
     description:
       'Component-driven pages with server rendering, progressive loading, and strong typing to keep large surfaces maintainable.',
   },
   {
-    title: 'Design Systems',
+    title: 'Microservices & CI/CD',
     description:
-      'Reusable token-based components, accessible patterns, and documentation flows that align engineering and product teams.',
-  },
-  {
-    title: 'State Management',
-    description:
-      'Centralized state through typed stores, API-driven cache layers, and local UI state kept isolated for performance.',
-  },
-  {
-    title: 'Microservices',
-    description:
-      'Domain-oriented services with clear contracts, containerized deployments, and scalable event-driven communication.',
-  },
-  {
-    title: 'CI/CD',
-    description:
-      'Fast pipelines with quality gates, automated tests, deploy previews, and release controls for enterprise delivery.',
+      'Domain-oriented services with clear contracts, containerized deployments, and fast pipelines with quality gates and production-safe rollouts.',
   },
   {
     title: 'Cloud Infrastructure',
@@ -222,8 +256,15 @@ export const leadershipItems = [
 
 export const githubProjects = [
   {
+    title: 'Wallet System',
+    description:
+      'Production-grade CBN-compliant wallet with KYC tier enforcement, AML flagging, double-entry GL ledger, Kafka async processing, and interbank transfer simulation.',
+    highlights: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Redis', 'Apache Kafka', 'Docker'],
+    href: 'https://github.com/wallet-system',
+  },
+  {
     title: 'FinCore',
-    description: 'Enterprise fintech platform with secure payment workflows and high-throughput architecture.',
+    description: 'Enterprise fintech platform with secure payment workflows and high-throughput microservices architecture.',
     highlights: ['React', 'Spring Boot', 'PostgreSQL', 'AWS', 'Kubernetes'],
     href: 'https://github.com/seyi-adeoti/fincore',
   },
@@ -262,6 +303,6 @@ export const testimonials = [
 
 export const contactLinks = [
   { label: 'Email', value: 'oluwaseyiadeoti825@gmail.com', href: 'mailto:oluwaseyiadeoti825@gmail.com', icon: 'Mail' },
-  { label: 'GitHub', value: 'github.com/seyi-adeoti', href: 'https://github.com/seyi-adeoti', icon: 'Github' },
+  { label: 'GitHub', value: 'github.com/seyi-react', href: 'https://github.com/seyi-react', icon: 'Github' },
   // { label: 'LinkedIn', value: 'linkedin.com/in/seyi-adeoti', href: 'https://linkedin.com/in/seyi-adeoti', icon: 'Linkedin' },
 ];
