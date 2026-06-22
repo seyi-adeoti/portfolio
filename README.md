@@ -1,4 +1,4 @@
-# Adeoti Oluwaseyi Olajuwon — Senior Frontend Portfolio
+# Adeoti Oluwaseyi Olajuwon — FullStack Portfolio
 
 A custom Next.js portfolio site built for senior software engineering positioning, local and international opportunities, and visa sponsorship support.
 

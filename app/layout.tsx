@@ -5,14 +5,14 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-  title: 'Adeoti Oluwaseyi Olajuwon — Senior Frontend Engineer',
+  title: 'Adeoti Oluwaseyi Olajuwon — Full stack Engineer',
   description:
-    'Senior Frontend Engineer building enterprise fintech and logistics platforms with React, TypeScript, Next.js, Java, Spring Boot, AWS, and microservices.',
+    'Full stack Engineer building enterprise fintech and logistics platforms with React, TypeScript, Next.js, Java, Spring Boot, AWS, and microservices.',
   metadataBase: new URL('https://adeoti.dev'),
   openGraph: {
-    title: 'Adeoti Oluwaseyi Olajuwon — Senior Frontend Engineer',
+    title: 'Adeoti Oluwaseyi Olajuwon — Full stack Engineer',
     description:
-      'Senior Frontend Engineer building enterprise fintech and logistics platforms with React, TypeScript, Next.js, Java, Spring Boot, AWS, and microservices.',
+      'Full stack Engineer building enterprise fintech and logistics platforms with React, TypeScript, Next.js, Java, Spring Boot, AWS, and microservices.',
     type: 'website',
   },
 };

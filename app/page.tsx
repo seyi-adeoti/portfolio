@@ -33,7 +33,7 @@ export default function Home() {
         <header className="sticky top-0 z-30 mb-12 rounded-3xl border border-white/10 bg-surface/80 backdrop-blur-xl px-6 py-4 shadow-glow sm:px-8">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-3 text-sm text-slate-300">
-              <span className="rounded-full border border-accent/30 bg-white/5 px-3 py-1 font-medium text-accent">Senior Frontend Engineer</span>
+              <span className="rounded-full border border-accent/30 bg-white/5 px-3 py-1 font-medium text-accent">Full stack Engineer</span>
               <span>Open to local and international opportunities with relocation & visa support</span>
             </div>
             <nav className="hidden items-center gap-4 text-sm text-slate-300 md:flex">
@@ -48,7 +48,7 @@ export default function Home() {
 
         <Section id="hero" className="grid gap-10 pb-20 pt-4 md:grid-cols-[1.1fr_0.9fr] md:items-end">
           <MotionDiv initial={false} animate="visible" variants={reveal} transition={{ duration: 0.7 }}>
-            <p className="text-sm uppercase tracking-[0.32em] text-accent/80">Senior Frontend Engineer</p>
+            <p className="text-sm uppercase tracking-[0.32em] text-accent/80">Full stack Engineer</p>
             <h1 className="mt-6 max-w-3xl text-5xl font-semibold tracking-tight text-white sm:text-6xl">
               Building scalable fintech and enterprise platforms used by 100,000+ users.
             </h1>
