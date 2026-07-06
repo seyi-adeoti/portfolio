@@ -20,7 +20,7 @@ const config: Config = {
         glow: '0 24px 80px rgba(0, 0, 0, 0.28)',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Geom', 'system-ui', 'sans-serif'],
       },
     },
   },

@@ -1,27 +1,29 @@
+@import url('https://fonts.cdnfonts.com/css/geom');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   color-scheme: dark;
-  background-color: #09090f;
-  color: #f8fafc;
-  font-family: var(--font-sans), system-ui, sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Geom', system-ui, sans-serif;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
   font-smooth: always;
   font-variant-ligatures: common-ligatures;
 }
 
 html {
+  min-height: 100%;
   scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
   margin: 0;
-  background: radial-gradient(circle at top, rgba(94, 234, 212, 0.14), transparent 28%),
-    radial-gradient(circle at 80% 10%, rgba(79, 70, 229, 0.14), transparent 26%),
-    #09090f;
+  background: #000000;
+  color: #ffffff;
 }
 
 * {
@@ -30,7 +32,7 @@ body {
 
 ::selection {
   background: rgba(94, 234, 212, 0.24);
-  color: white;
+  color: #ffffff;
 }
 
 h1,
@@ -44,7 +46,7 @@ ul {
 }
 
 p {
-  color: #d1d5db;
+  color: #cbd5e1;
 }
 
 button,
@@ -58,15 +60,15 @@ svg {
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-full bg-accent px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-accent/60;
+  @apply inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-medium text-white transition duration-200 hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-white/20;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm text-white transition hover:border-accent/70 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-accent/40;
+  @apply inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-white transition duration-200 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/20;
 }
 
 .section-card {
-  @apply rounded-3xl border border-white/10 bg-white/5 p-8 shadow-glow backdrop-blur-xl;
+  @apply rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-[0_24px_96px_rgba(0,0,0,0.28)] transition duration-300 ease-out backdrop-blur-3xl;
 }
 
 .text-muted {
@@ -79,4 +81,22 @@ svg {
 
 .section-subtitle {
   @apply mt-4 max-w-3xl text-base leading-8 text-slate-300;
+}
+
+.code-panel {
+  @apply rounded-[2rem] border border-white/10 bg-slate-950/90 p-6 shadow-[0_40px_120px_rgba(0,0,0,0.35)] backdrop-blur-3xl;
+}
+
+.code-panel pre {
+  @apply overflow-x-auto whitespace-pre-wrap text-sm text-white;
+}
+
+.code-label {
+  @apply text-sm uppercase tracking-[0.3em] text-slate-400;
+}
+
+@layer utilities {
+  .shadow-glow {
+    box-shadow: 0 32px 120px rgba(0, 0, 0, 0.25);
+  }
 }

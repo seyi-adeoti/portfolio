@@ -123,20 +123,20 @@ export const caseStudies = [
   },
   // ── FRONTEND CASE STUDIES ────────────────────────────────────────────────
   {
-    title: 'Enterprise Banking Platform',
-    subtitle: 'Driving secure, scalable banking experiences for 100K+ users',
+    title: 'Distributed Payment System',
+    subtitle: 'Resilient payment orchestration across services and global settlement rails',
     problem:
-      'The client needed a resilient digital banking platform with high performance, multi-tenancy, and regulatory compliance for enterprise banking customers.',
+      'The business needed a distributed payment backbone that could process real-time transactions, recover from service failures, and reconcile settlements without manual intervention.',
     architecture:
-      'Modular frontend built on Next.js and React, a Spring Boot backend separated into payment, account, and notification domains, and AWS infrastructure orchestrated with EKS, VPCs, and managed databases.',
-    technologies: ['React', 'Next.js', 'TypeScript', 'Spring Boot', 'PostgreSQL', 'AWS', 'Kubernetes', 'Redis'],
+      'Event-driven payment mesh built on Spring Boot microservices, Kafka for reliable event delivery, PostgreSQL for ledger storage, and idempotent APIs for safe retries across service boundaries.',
+    technologies: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Apache Kafka', 'Docker', 'Kubernetes', 'Distributed Systems'],
     decisions:
-      'I prioritized secure API boundaries, progressive hydration for fast first paint, strict contract testing, and feature flag rollout for critical payment workflows.',
+      'I designed a failure-safe payment workflow with compensating transactions, eventual consistency for settlement, and strong audit trails for each money movement.',
     impact:
-      'Delivered a platform that reduced page response time by 35%, supported over 100,000 active users, and maintained <1% production incident rate after launch.',
+      'Enabled cross-service payment processing with 99.98% uptime, reduced reconciliation effort by 70%, and supported high-volume settlement spikes with deterministic recovery.',
     lessons:
-      'Building for banking at scale demands strong architectural discipline and collaboration between frontend, backend, QA, and security teams.',
-    icon: ShieldCheck,
+      'Distributed payments require clear failure boundaries, explicit state transitions, and a reconciliation-first architecture to keep money moving safely.',
+    icon: Wallet,
   },
   {
     title: 'Logistics Management Platform',
@@ -263,10 +263,11 @@ export const githubProjects = [
     href: 'https://github.com/wallet-system',
   },
   {
-    title: 'FinCore',
-    description: 'Enterprise fintech platform with secure payment workflows and high-throughput microservices architecture.',
-    highlights: ['React', 'Spring Boot', 'PostgreSQL', 'AWS', 'Kubernetes'],
-    href: 'https://github.com/seyi-adeoti/fincore',
+    title: 'Distributed Payment System',
+    description:
+      'Secure, event-driven payment orchestration for global rails, resilient settlement workflows, and real-time reconciliation across services.',
+    highlights: ['Java', 'Spring Boot', 'PostgreSQL', 'Apache Kafka', 'Distributed Systems'],
+    href: 'https://github.com/seyi-adeoti/distributed-payment-system',
   },
   {
     title: 'Enterprise Design System',

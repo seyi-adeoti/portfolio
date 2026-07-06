@@ -30,13 +30,13 @@ export default function Home() {
     <main className="relative overflow-hidden">
       <div className="absolute inset-x-0 top-0 h-[380px] bg-gradient-to-b from-slate-900 to-transparent opacity-90" />
       <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-8 sm:px-8">
-        <header className="sticky top-0 z-30 mb-12 rounded-3xl border border-white/10 bg-surface/80 backdrop-blur-xl px-6 py-4 shadow-glow sm:px-8">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="flex items-center gap-3 text-sm text-slate-300">
-              <span className="rounded-full border border-accent/30 bg-white/5 px-3 py-1 font-medium text-accent">Full stack Engineer</span>
-              <span>Open to local and international opportunities with relocation & visa support</span>
+        <header className="sticky top-0 z-30 mb-12 rounded-3xl border border-white/10 bg-slate-950/75 backdrop-blur-3xl px-6 py-4 shadow-glow sm:px-8">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-3 text-sm text-slate-300">
+              <span className="rounded-full border border-accent/30 bg-accent/10 px-3 py-1 font-medium text-accent">Full stack Engineer</span>
+              <span className="text-slate-300">Open to local and international opportunities with relocation & visa support</span>
             </div>
-            <nav className="hidden items-center gap-4 text-sm text-slate-300 md:flex">
+            <nav className="hidden items-center gap-6 text-sm text-slate-300 md:flex">
               {navItems.map((item) => (
                 <a key={item.href} href={item.href} className="transition hover:text-white">
                   {item.label}
@@ -46,26 +46,32 @@ export default function Home() {
           </div>
         </header>
 
-        <Section id="hero" className="grid gap-10 pb-20 pt-4 md:grid-cols-[1.1fr_0.9fr] md:items-end">
-          <MotionDiv initial={false} animate="visible" variants={reveal} transition={{ duration: 0.7 }}>
-            <p className="text-sm uppercase tracking-[0.32em] text-accent/80">Full stack Engineer</p>
-            <h1 className="mt-6 max-w-3xl text-5xl font-semibold tracking-tight text-white sm:text-6xl">
-              Building scalable fintech and enterprise platforms used by 100,000+ users.
+        <Section id="hero" className="relative overflow-hidden grid gap-10 pb-24 pt-16 md:grid-cols-[1.45fr_1fr] md:items-center md:gap-16">
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(circle_at_top_left,_rgba(94,234,212,0.16),_transparent_24%),radial-gradient(circle_at_20%_20%,_rgba(168,85,247,0.12),_transparent_20%)]" />
+
+          <MotionDiv initial={false} animate="visible" variants={reveal} transition={{ duration: 0.75 }} className="relative z-10">
+            <div className="inline-flex items-center gap-4 rounded-full border border-white/10 bg-slate-950/75 px-4 py-2 text-xs uppercase tracking-[0.35em] text-accent/90 shadow-[0_24px_88px_rgba(0,0,0,0.18)]">
+              <span className="font-semibold text-white">Distributed payments</span>
+              <span className="text-slate-300">API-first architecture</span>
+            </div>
+            <h1 className="mt-10 max-w-3xl text-5xl font-semibold tracking-tight text-white sm:text-6xl md:text-7xl">
+              Fast, resilient payment systems built for enterprise-scale operations.
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300">
-              I deliver secure, high-performance experiences across banking, logistics, and platform engineering for both local and global product teams. My work spans React, TypeScript, Next.js, Java, Spring Boot, AWS,
-              Docker, Kubernetes, and enterprise-grade systems.
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
+              I design and deliver distributed payment platforms with secure rails, event-driven settlements, and strong engineering discipline for global growth.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap gap-3">
               {heroBadges.map((badge) => (
-                <Tag key={badge}>{badge}</Tag>
+                <Tag key={badge} className="rounded-full bg-white/5 px-4 py-2 text-sm text-slate-200 border border-white/10 ring-1 ring-white/5">
+                  {badge}
+                </Tag>
               ))}
             </div>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-12 flex flex-col gap-4 sm:flex-row">
               <LinkButton href="#case-studies" className="btn-primary shadow-glow">
                 View Engineering Case Studies
               </LinkButton>
-              <LinkButton href="/ADEOTI-SEYI-CV.pdf" target="_blank">
+              <LinkButton href="/ADEOTI-SEYI-CV.pdf" target="_blank" className="btn-secondary">
                 Download Resume
               </LinkButton>
             </div>
@@ -73,24 +79,33 @@ export default function Home() {
 
           <MotionDiv
             initial={false}
-            animate={{ opacity: 1, x: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-glow backdrop-blur-xl"
+            className="hero-card relative z-10 mx-auto w-full max-w-lg overflow-hidden"
           >
-            <div className="mb-6 flex items-center justify-between gap-4">
-              <div>
-                <p className="text-sm uppercase tracking-[0.28em] text-slate-500">Featured impact</p>
-                <p className="mt-2 text-3xl font-semibold text-white">Enterprise scale, security, and delivery</p>
+            <div className="flex items-center justify-between gap-4 rounded-3xl bg-slate-900/85 px-4 py-3 text-sm text-slate-300">
+              <div className="flex items-center gap-3">
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_0_8px_rgba(94,234,212,0.12)]" />
+                <span className="font-semibold text-white">Live API preview</span>
               </div>
-              <div className="rounded-2xl bg-slate-900/70 px-4 py-2 text-sm text-slate-200">Local + global teams</div>
+              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.65rem] uppercase tracking-[0.35em] text-slate-400">
+                HTTP
+              </span>
             </div>
-            <div className="grid gap-4 text-sm leading-7 text-slate-300">
-              <p>
-                I help local and international teams define architecture, launch secure fintech flows, and build reliable logistics systems while maintaining exceptional engineering quality.
-              </p>
-              <p>
-                My approach balances product speed with long-term maintainability, operational maturity, and measurable business value.
-              </p>
+            <div className="mt-6 rounded-[1.75rem] border border-slate-800 bg-slate-950/90 p-6">
+              <div className="mb-4 flex items-center justify-between text-xs uppercase tracking-[0.32em] text-slate-500">
+                <span>GET /health</span>
+                <span>JSON</span>
+              </div>
+              <pre className="whitespace-pre-wrap text-sm leading-7 text-slate-200">
+                <code>{`$ curl -X GET https://api.distributed-payments.com/health
+200 OK
+
+$ curl -X POST https://api.distributed-payments.com/transactions
+  -H "Content-Type: application/json"
+  -d '{"amount": 12500, "currency": "USD", "source": "wallet", "destination": "settlement"}'
+202 Accepted`}</code>
+              </pre>
             </div>
           </MotionDiv>
         </Section>
