@@ -304,6 +304,6 @@ export const testimonials = [
 
 export const contactLinks = [
   { label: 'Email', value: 'oluwaseyiadeoti825@gmail.com', href: 'mailto:oluwaseyiadeoti825@gmail.com', icon: 'Mail' },
-  { label: 'GitHub', value: 'github.com/seyi-react', href: 'https://github.com/seyi-react', icon: 'Github' },
+  { label: 'GitHub', value: 'github.com/seyi-adeoti', href: 'https://github.com/seyi-adeoti', icon: 'Github' },
   // { label: 'LinkedIn', value: 'linkedin.com/in/seyi-adeoti', href: 'https://linkedin.com/in/seyi-adeoti', icon: 'Linkedin' },
 ];
