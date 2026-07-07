@@ -47,7 +47,7 @@ export default function Home() {
         </header>
 
         <Section id="hero" className="relative overflow-hidden grid gap-10 pb-24 pt-16 md:grid-cols-[1.45fr_1fr] md:items-center md:gap-16">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(circle_at_top_left,_rgba(94,234,212,0.16),_transparent_24%),radial-gradient(circle_at_20%_20%,_rgba(168,85,247,0.12),_transparent_20%)]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-[520px]" />
 
           <MotionDiv initial={false} animate="visible" variants={reveal} transition={{ duration: 0.75 }} className="relative z-10">
             <div className="inline-flex items-center gap-4 rounded-full border border-white/10 bg-slate-950/75 px-4 py-2 text-xs uppercase tracking-[0.35em] text-accent/90 shadow-[0_24px_88px_rgba(0,0,0,0.18)]">
