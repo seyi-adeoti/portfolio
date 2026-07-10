@@ -15,7 +15,6 @@ import {
   heroLocation,
   heroVisaStatus,
   experience,
-  additionalExperience,
   projects,
   contactLinks,
 } from '../lib/data';
@@ -175,26 +174,6 @@ export default function Home() {
               ))}
             </div>
 
-            {/* Additional experience — brief */}
-            <ScrollReveal delay={0.1}>
-              <div className="mt-8">
-                <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500 mb-4">
-                  Additional experience
-                </h3>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  {additionalExperience.map((item) => (
-                    <Card key={item.company} className="p-5">
-                      <div className="flex items-center justify-between gap-3">
-                        <p className="text-sm font-semibold text-white">{item.company}</p>
-                        <span className="text-xs text-slate-600 whitespace-nowrap">{item.period}</span>
-                      </div>
-                      <p className="mt-1 text-xs text-slate-500">{item.role}</p>
-                      <p className="mt-3 text-sm leading-7 text-slate-400">{item.description}</p>
-                    </Card>
-                  ))}
-                </div>
-              </div>
-            </ScrollReveal>
           </div>
         </section>
 

@@ -1,11 +1,11 @@
-import { Bolt, Github, Layers, Linkedin, Mail, ServerCog, ShieldCheck, Sparkles, Truck, Users, Wallet, FileText } from 'lucide-react';
+import { Bolt, Github, Layers, Linkedin, Mail, ServerCog, ShieldCheck, Sparkles, Truck, Users, Wallet, FileText, Building2, CreditCard } from 'lucide-react';
 
 // ─── HERO ──────────────────────────────────────────────────────────────────────
 
 export const heroTitle = 'Full-stack engineer building production systems that scale.';
 
 export const heroSubtitle =
-  'I design and deliver distributed platforms — from fintech payment rails to real-time logistics — with strong engineering discipline, event-driven architecture, and a bias for resilient, observable systems.';
+  'Senior frontend engineer leading a team at Sterling Bank, with deep backend experience in fintech, logistics, and distributed systems. I build reliable software — from regulated banking platforms to real-time operations.';
 
 export const heroBadges = ['React', 'TypeScript', 'Next.js', 'Java', 'Spring Boot', 'Kafka', 'AWS', 'PostgreSQL', 'Docker'];
 
@@ -21,119 +21,97 @@ export const navItems = [
   { label: 'Contact', href: '#contact' },
 ];
 
-// ─── EXPERIENCE / CASE STUDIES ─────────────────────────────────────────────────
-// TODO: Replace [Company Name] placeholders with actual company names.
-// TODO: Verify all dates are accurate.
+// ─── WORK EXPERIENCE ───────────────────────────────────────────────────────────
+// These are REAL roles at REAL companies with accurate titles and dates.
 
 export const experience = [
   {
-    company: 'ComplyDesk',
-    role: 'Senior Backend Engineer',
+    company: 'Sterling Bank',
+    role: 'Senior Frontend Engineer',
     location: 'Lagos, Nigeria',
-    period: 'Jan 2023 – Present',
-    teamSize: '8-person engineering team',
-    title: 'Tax Computation Engine & Government API Integration',
+    period: '2022 – Present', // TODO: Verify exact start date
+    teamSize: 'Leading frontend team',
+    title: 'Banking Platform & Branch Operations',
     subtitle:
-      'Multi-tenant compliance platform automating tax filing for accountants, individuals, and regulators.',
+      'Leading frontend engineering for enterprise banking applications, while contributing to backend services.',
     problem:
-      'The business needed a backend engine that could accurately process multi-tier income brackets, statutory reliefs, and deductions — then file directly with the national tax authority API, with zero tolerance for calculation errors and full audit traceability.',
+      'Sterling needed modern, reliable web applications for loan origination, branch account opening, and card management — serving operations across all branches with strict compliance and auditability requirements.',
     architecture:
-      'Multi-tenant Spring Boot service with role-scoped access for three actor types: accountants (file on behalf of clients), users (self-service computation and submission), and admin (regulatory oversight). Government API integration sits behind an adapter layer with retry logic, reconciliation workflows, and idempotent submission tracking.',
+      'React-based frontends with component-driven architecture, integrated with Spring Boot backend services. Built loan application platform with intake, inputter handoff, and approval workflows. Delivered account opening channel and card portal system with insurance integration.',
     impact:
-      'Eliminated manual reconciliation cycles between internal ledgers and government data sources. Compliance defect rate dropped significantly. The platform passed regulatory inspection readiness checks on first review.',
-    technologies: ['Java 11', 'Spring Boot', 'PostgreSQL', 'REST APIs', 'Docker', 'Git'],
-    icon: FileText,
+      'Streamlined loan operations and improved approval visibility while preserving compliance controls. Unified account onboarding and card management across all branches, making branch channels more consistent and reliable.',
+    technologies: ['React', 'TypeScript', 'Spring Boot', 'REST APIs', 'Workflow Automation'],
+    icon: Building2,
   },
   {
-    company: '[Company Name]',
-    role: 'Full Stack Engineer',
+    company: 'Trip Value',
+    role: 'Engineering Team Lead',
     location: 'Lagos, Nigeria',
-    period: '[Start] – [End]',
-    teamSize: '[X]-person team',
-    title: 'CBN-Compliant Wallet & Payment Infrastructure',
+    period: '2021 – 2022', // TODO: Verify exact dates
+    teamSize: 'Led engineering team',
+    title: 'Logistics & Operations Platform',
     subtitle:
-      'Production-grade digital wallet with national banking regulator compliance, anti-money laundering, and double-entry ledger.',
+      'Led the engineering team building real-time logistics tracking and fleet management systems.',
     problem:
-      'Building a production-grade wallet required full regulatory compliance with the national banking authority: tiered identity verification limits, anti-money laundering transaction monitoring, idempotent transfers, and a real general ledger — not just a balance field.',
+      'The company needed a resilient platform to monitor shipments, coordinate routes, and provide live updates across distributed operations teams — with reliable performance under high-volume conditions.',
     architecture:
-      'Spring Boot microservice with PostgreSQL as the ledger store, Redis for session management and rate limiting, and Kafka for async transaction processing. Wallet operations run through a double-entry GL engine; every debit has a corresponding credit with no exceptions.',
+      'React dashboard with real-time API layer using WebSockets, microservices backend on Spring Boot, and containerized deployments. Led architecture decisions, code reviews, and delivery execution for the engineering team.',
     impact:
-      'Full identity verification tier system with enforced limits, automated AML flagging on high-value transactions, interbank transfer simulation with timeout handling, and a regulatory report generator — all with a complete audit trail.',
-    technologies: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Redis', 'Apache Kafka', 'Docker'],
-    icon: Wallet,
-  },
-  {
-    company: '[Company Name]',
-    role: 'Full Stack Engineer',
-    location: 'Lagos, Nigeria',
-    period: '[Start] – [End]',
-    teamSize: '[X]-person team',
-    title: 'Distributed Payment System',
-    subtitle:
-      'Resilient payment orchestration across services with event-driven settlement and real-time reconciliation.',
-    problem:
-      'The business needed a distributed payment backbone that could process real-time transactions, recover from service failures, and reconcile settlements without manual intervention.',
-    architecture:
-      'Event-driven payment mesh built on Spring Boot microservices, Kafka for reliable event delivery, PostgreSQL for ledger storage, and idempotent APIs for safe retries across service boundaries.',
-    impact:
-      'Enabled cross-service payment processing with 99.98% uptime, reduced reconciliation effort by 70%, and supported high-volume settlement spikes with deterministic recovery.',
-    technologies: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Apache Kafka', 'Docker', 'Kubernetes'],
-    icon: Wallet,
-  },
-  {
-    company: '[Company Name]',
-    role: 'Frontend Engineer',
-    location: 'Budapest, Hungary (Remote)',
-    period: '[Start] – [End]',
-    teamSize: '[X]-person team',
-    title: 'Real-Time Logistics Platform',
-    subtitle:
-      'Fleet management dashboard with live tracking, route optimization, and driver verification.',
-    problem:
-      'A logistics operator required a resilient web system to monitor shipments, coordinate routes, and provide live updates across distributed teams — with trusted driver verification and proof-of-address checks.',
-    architecture:
-      'React dashboard with a real-time API layer using WebSockets, a microservices backend on Spring Boot, and containerized deployments for service isolation.',
-    impact:
-      'Enabled 24/7 operational visibility, accelerated task resolution, and reduced route latency by 40% in peak hours. Driver verification improved operational trust from the first rollout.',
+      'Enabled 24/7 operational visibility, accelerated task resolution, and reduced route latency by 40% in peak hours. Grew and mentored the engineering team while maintaining delivery velocity.',
     technologies: ['React', 'TypeScript', 'WebSockets', 'Spring Boot', 'Docker', 'PostgreSQL', 'Redis'],
     icon: Truck,
   },
-];
-
-// ─── ADDITIONAL EXPERIENCE (collapsed / brief) ────────────────────────────────
-
-export const additionalExperience = [
   {
-    company: 'Sterling Bank',
-    role: 'Frontend Engineer',
-    period: '[Start] – [End]',
-    description: 'Built loan application platform with intake, approval workflows, and branch coordination. Delivered account opening channel and card portal used across all branches.',
+    company: 'Contract Role',
+    role: 'Frontend Engineer (Contract)',
+    location: 'Budapest, Hungary (Remote)',
+    period: '2020 – 2021',
+    teamSize: 'Contract engagement',
+    title: 'Logistics Marketplace',
+    subtitle:
+      'Built a fast-launch order-to-rider matching application for a logistics startup.',
+    problem:
+      'A Hungarian logistics startup needed a marketplace application to match orders with verified riders, including driver verification, document submission, and proof-of-address checks — delivered under tight timelines.',
+    architecture:
+      'React-based marketplace with real-time order matching, driver verification workflows, and responsive design for field operations. Integrated with backend APIs for document processing and address verification.',
+    impact:
+      'Delivered a reliable matching flow that connected orders to verified riders. Improved operational trust from first rollout. Demonstrated ability to deliver remotely for an international client.',
+    technologies: ['React', 'TypeScript', 'Real-time APIs', 'Responsive Design'],
+    icon: Truck,
   },
   {
-    company: '[Company Name]',
-    role: 'Frontend Engineer',
-    period: '[Start] – [End]',
-    description: 'Created enterprise design system with React, Storybook, and accessibility-first patterns. Cut onboarding time for new engineers by 50%.',
+    company: 'ComplyDesk',
+    role: 'Backend Developer',
+    location: 'Lagos, Nigeria',
+    period: '2019 – 2020', // TODO: Verify exact dates
+    teamSize: 'Engineering team',
+    title: 'Tax Computation Engine & Government API Integration',
+    subtitle:
+      'Built multi-tenant compliance platform automating tax filing for accountants, individuals, and regulators.',
+    problem:
+      'ComplyDesk needed a backend engine to accurately process multi-tier income brackets, statutory reliefs, and deductions — then file directly with the national tax authority API, with zero tolerance for calculation errors and full audit traceability.',
+    architecture:
+      'Multi-tenant Spring Boot service with role-scoped access for accountants, end users, and admin. Government API integration behind an adapter layer with retry logic, reconciliation workflows, and idempotent submission tracking.',
+    impact:
+      'Eliminated manual reconciliation cycles between internal ledgers and government data sources. Compliance defect rate dropped significantly. Platform passed regulatory inspection readiness checks on first review.',
+    technologies: ['Java 11', 'Spring Boot', 'PostgreSQL', 'REST APIs', 'Docker'],
+    icon: FileText,
   },
 ];
 
-// ─── PROJECTS ──────────────────────────────────────────────────────────────────
+// ─── ADDITIONAL EXPERIENCE ─────────────────────────────────────────────────────
+
+export const additionalExperience: { company: string; role: string; period: string; description: string; }[] = [];
+
+// ─── PROJECTS (Side Projects — Honest Framing) ────────────────────────────────
+// These are personal/side projects, clearly labeled as such.
 
 export const projects = [
   {
-    title: 'Lekture',
-    subtitle: 'Tech Learning Marketplace',
+    title: 'CBN-Compliant Wallet System',
+    subtitle: 'Personal Project — Full-stack Fintech',
     description:
-      'Full-stack marketplace connecting students and instructors. Features real-time matching with WebSocket-based notifications, server-rendered course discovery, and integrated video streaming. Built responsive UI supporting 3 user roles with distinct dashboards.',
-    highlights: ['React', 'TypeScript', 'Next.js', 'WebSockets', 'Responsive Design'],
-    href: 'https://lekture-fe.vercel.app/',
-    github: 'https://github.com/seyi-adeoti/lekture',
-    live: true,
-  },
-  {
-    title: 'Wallet System',
-    description:
-      'Production-grade digital wallet with identity verification tier enforcement, AML flagging, double-entry GL ledger, Kafka async processing, and interbank transfer simulation.',
+      'Production-grade digital wallet built to deepen my understanding of regulated financial systems. Implements national banking authority compliance with identity verification tiers, anti-money laundering flagging, double-entry GL ledger, and Kafka-based async processing. Includes interbank transfer simulation and regulatory report generation.',
     highlights: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Redis', 'Apache Kafka', 'Docker'],
     href: null,
     github: 'https://github.com/wallet-system',
@@ -141,12 +119,23 @@ export const projects = [
   },
   {
     title: 'Distributed Payment System',
+    subtitle: 'Personal Project — Systems Design',
     description:
-      'Event-driven payment orchestration for resilient settlement workflows and real-time reconciliation across services.',
-    highlights: ['Java', 'Spring Boot', 'PostgreSQL', 'Apache Kafka', 'Distributed Systems'],
+      'Event-driven payment orchestration built to master distributed systems patterns. Features resilient settlement workflows with compensating transactions, eventual consistency, idempotent APIs for safe retries, and real-time reconciliation across service boundaries.',
+    highlights: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Apache Kafka', 'Kubernetes'],
     href: null,
     github: 'https://github.com/seyi-adeoti/distributed-payment-system',
     live: false,
+  },
+  {
+    title: 'Lekture',
+    subtitle: 'Side Project — Ed-tech Marketplace',
+    description:
+      'Full-stack marketplace connecting students and instructors. Features real-time matching with WebSocket notifications, server-rendered course discovery, and integrated video streaming. Built responsive UI supporting 3 user roles with distinct dashboards.',
+    highlights: ['React', 'TypeScript', 'Next.js', 'WebSockets', 'Responsive Design'],
+    href: 'https://lekture-fe.vercel.app/',
+    github: 'https://github.com/seyi-adeoti/lekture',
+    live: true,
   },
 ];
 
