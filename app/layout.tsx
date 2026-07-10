@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 
-const inter = Inter({
-  subsets: ['latin'],
+const geom = localFont({
+  src: '../public/fonts/geom-latin-wght-normal.woff2',
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-geom',
+  weight: '300 900',
 });
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} scroll-smooth`}>
+    <html lang="en" className={`${geom.variable} scroll-smooth`}>
       <body className="font-sans text-white antialiased">
         {children}
       </body>

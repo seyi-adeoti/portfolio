@@ -23,7 +23,7 @@ const config: Config = {
         glass: '0 20px 80px rgba(0, 0, 0, 0.3)',
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-geom)', 'system-ui', 'sans-serif'],
       },
       animation: {
         float: 'float 20s ease-in-out infinite',
