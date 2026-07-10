@@ -1,309 +1,159 @@
-import { ArrowUpRight, Bolt, Layers, ServerCog, ShieldCheck, Sparkles, Truck, Users, Wallet, FileText } from 'lucide-react';
+import { Bolt, Github, Layers, Linkedin, Mail, ServerCog, ShieldCheck, Sparkles, Truck, Users, Wallet, FileText } from 'lucide-react';
+
+// ─── HERO ──────────────────────────────────────────────────────────────────────
+
+export const heroTitle = 'Full-stack engineer building production systems that scale.';
+
+export const heroSubtitle =
+  'I design and deliver distributed platforms — from fintech payment rails to real-time logistics — with strong engineering discipline, event-driven architecture, and a bias for resilient, observable systems.';
+
+export const heroBadges = ['React', 'TypeScript', 'Next.js', 'Java', 'Spring Boot', 'Kafka', 'AWS', 'PostgreSQL', 'Docker'];
+
+export const heroLocation = 'Lagos, Nigeria (WAT / GMT+1)';
+
+export const heroVisaStatus = 'Passport holder · Open to visa sponsorship & relocation';
+
+// ─── NAV ───────────────────────────────────────────────────────────────────────
 
 export const navItems = [
-  { label: 'Case Studies', href: '#case-studies' },
-  { label: 'Architecture', href: '#architecture' },
-  { label: 'Leadership', href: '#leadership' },
-  { label: 'GitHub', href: '#github' },
-  { label: 'Side Projects', href: '#side-projects' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ];
 
-export const heroBadges = ['React', 'TypeScript', 'Next.js', 'Java', 'Spring Boot', 'Kafka', 'AWS'];
+// ─── EXPERIENCE / CASE STUDIES ─────────────────────────────────────────────────
+// TODO: Replace [Company Name] placeholders with actual company names.
+// TODO: Verify all dates are accurate.
 
-export const metrics = [
-  { value: '100K+', label: 'Users Served' },
-  { value: '45%', label: 'Faster Transaction Processing' },
-  { value: '5+', label: 'Years Experience' },
-  { value: '90%', label: 'Test Coverage' },
-  { value: '20+', label: 'APIs Built & Integrated' },
-];
-
-export const proofPoints = [
+export const experience = [
   {
-    title: 'CI/CD & quality gates',
-    description: 'Automated pipelines with linting, test suites, deploy previews, and production-safe rollouts.',
-    icon: ServerCog,
-  },
-  {
-    title: 'Security & compliance',
-    description: 'Secure architecture review, CBN-compliant KYC tiers, AML flagging, audit trails, and encryption for regulated financial systems.',
-    icon: ShieldCheck,
-  },
-  {
-    title: 'Performance at scale',
-    description: 'Performance-first engineering for high-traffic platforms with Redis caching, Kafka async processing, and observability.',
-    icon: Bolt,
-  },
-  {
-    title: 'Cross-team delivery',
-    description: 'Aligned product, design, and ops with engineering standards for dependable launch execution.',
-    icon: Users,
-  },
-];
-
-export const processSteps = [
-  {
-    title: 'Discovery & alignment',
-    description: 'Align product outcomes, risk tolerance, and business value before choosing the architecture path.',
-    icon: Layers,
-  },
-  {
-    title: 'Architecture & planning',
-    description: 'Define service boundaries, frontend patterns, and quality guardrails for scalable delivery.',
-    icon: ServerCog,
-  },
-  {
-    title: 'Build & validation',
-    description: 'Ship iteratively with strong testing, code reviews, and performance verification at each milestone.',
-    icon: ShieldCheck,
-  },
-  {
-    title: 'Operate & improve',
-    description: 'Embed observability, CI/CD, and feedback loops to keep systems resilient under real usage.',
-    icon: Bolt,
-  },
-];
-
-export const whyHireMe = [
-  {
-    title: 'Fintech depth, end-to-end',
-    text: 'From CBN-compliant wallet infrastructure and AML systems to FIRS tax APIs and double-entry ledgers — I build the financial plumbing that startups and banks depend on.',
-  },
-  {
-    title: 'Leadership beyond code',
-    text: 'Leading architecture decisions, mentoring engineers, and coordinating cross-functional delivery for production systems.',
-  },
-  {
-    title: 'Local and global readiness',
-    text: 'Experienced with Nigerian regulatory systems (CBN, FIRS, NIN/BVN KYC) and distributed global teams. Open to relocation, visa sponsorship, and remote collaboration.',
-  },
-];
-
-export const lookingFor = [
-  'Local and international senior engineering roles',
-  'Relocation & visa sponsorship',
-  'Remote / hybrid collaboration',
-  'Product-led fintech and enterprise teams',
-];
-
-export const caseStudies = [
-  // ── BACKEND CASE STUDIES ─────────────────────────────────────────────────
-  {
-    title: 'CBN-Compliant Wallet System',
-    subtitle: 'Core banking infrastructure with KYC tiers, AML, and double-entry ledger',
+    company: 'ComplyDesk',
+    role: 'Senior Backend Engineer',
+    location: 'Lagos, Nigeria',
+    period: 'Jan 2023 – Present',
+    teamSize: '8-person engineering team',
+    title: 'Tax Computation Engine & Government API Integration',
+    subtitle:
+      'Multi-tenant compliance platform automating tax filing for accountants, individuals, and regulators.',
     problem:
-      'Building a production-grade wallet for a Nigerian fintech required full CBN regulatory compliance: tiered KYC limits, AML transaction monitoring, idempotent transfers, and a real GL ledger — not just a balance field.',
+      'The business needed a backend engine that could accurately process multi-tier income brackets, statutory reliefs, and deductions — then file directly with the national tax authority API, with zero tolerance for calculation errors and full audit traceability.',
     architecture:
-      'Spring Boot microservice with PostgreSQL as the ledger store, Redis for session management, rate limiting, and account detail caching, and Kafka for async transaction processing. Wallet operations run through a double-entry GL engine; every debit has a corresponding credit with no exceptions.',
-    technologies: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Redis', 'Apache Kafka', 'Docker', 'Swagger'],
-    decisions:
-      'Idempotency keys on every transfer endpoint prevent duplicate processing under retries or network failure. CBN daily and single transaction limits are enforced per tier at the service layer before any ledger write. AML flagging runs as a Kafka consumer so it never blocks the transaction response path.',
+      'Multi-tenant Spring Boot service with role-scoped access for three actor types: accountants (file on behalf of clients), users (self-service computation and submission), and admin (regulatory oversight). Government API integration sits behind an adapter layer with retry logic, reconciliation workflows, and idempotent submission tracking.',
     impact:
-      'Full KYC tier system (Tier 1/2/3) with enforced limits, AML flagging on transactions above ₦5m, interbank transfer simulation with status enquiry and timeout handling, and a regulatory report generator — all with a complete audit trail on every action.',
-    lessons:
-      'Nigerian fintech compliance is not a layer you add later. Encoding CBN rules at the domain model level — not in validation annotations — keeps the system correct as regulations change.',
+      'Eliminated manual reconciliation cycles between internal ledgers and government data sources. Compliance defect rate dropped significantly. The platform passed regulatory inspection readiness checks on first review.',
+    technologies: ['Java 11', 'Spring Boot', 'PostgreSQL', 'REST APIs', 'Docker', 'Git'],
+    icon: FileText,
+  },
+  {
+    company: '[Company Name]',
+    role: 'Full Stack Engineer',
+    location: 'Lagos, Nigeria',
+    period: '[Start] – [End]',
+    teamSize: '[X]-person team',
+    title: 'CBN-Compliant Wallet & Payment Infrastructure',
+    subtitle:
+      'Production-grade digital wallet with national banking regulator compliance, anti-money laundering, and double-entry ledger.',
+    problem:
+      'Building a production-grade wallet required full regulatory compliance with the national banking authority: tiered identity verification limits, anti-money laundering transaction monitoring, idempotent transfers, and a real general ledger — not just a balance field.',
+    architecture:
+      'Spring Boot microservice with PostgreSQL as the ledger store, Redis for session management and rate limiting, and Kafka for async transaction processing. Wallet operations run through a double-entry GL engine; every debit has a corresponding credit with no exceptions.',
+    impact:
+      'Full identity verification tier system with enforced limits, automated AML flagging on high-value transactions, interbank transfer simulation with timeout handling, and a regulatory report generator — all with a complete audit trail.',
+    technologies: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Redis', 'Apache Kafka', 'Docker'],
     icon: Wallet,
   },
   {
-    title: 'Tax Computation Engine & FIRS Integration',
-    subtitle: 'Multi-tenant compliance platform for accountants, users, and regulators at ComplyDesk',
-    problem:
-      'ComplyDesk needed a backend engine that could accurately process multi-tier income brackets, statutory reliefs, and deductions for individual and corporate clients — then file directly with FIRS, with zero tolerance for calculation errors and full audit traceability.',
-    architecture:
-      'A multi-tenant Spring Boot service with role-scoped access for three actor types: accountants (file on behalf of clients), users (self-service tax computation and submission), and admin (regulatory oversight and report generation). FIRS API integration sits behind an adapter layer with retry logic, reconciliation workflows, and idempotent submission tracking.',
-    technologies: ['Java 11', 'Spring Boot', 'PostgreSQL', 'REST APIs', 'Docker', 'Git', 'FIRS API'],
-    decisions:
-      'Tenant isolation enforced at the data layer — each accountant firm operates in a scoped context with no data bleed between clients. Statutory rules are encoded as versioned domain objects so that tax year changes require configuration updates, not code changes. Immutable audit logs are written before and after every computation for full regulatory traceability.',
-    impact:
-      'Eliminated manual reconciliation cycles between internal ledgers and FIRS data sources. Compliance defect rate dropped significantly. The platform handled high volumes of tax records with consistent accuracy and passed regulatory inspection readiness checks on first review.',
-    lessons:
-      'Tax computation is a domain problem, not a math problem. Translating statutory language into maintainable business logic requires embedding domain experts in the engineering process, not just reading the legislation.',
-    icon: FileText,
-  },
-  // ── FRONTEND CASE STUDIES ────────────────────────────────────────────────
-  {
+    company: '[Company Name]',
+    role: 'Full Stack Engineer',
+    location: 'Lagos, Nigeria',
+    period: '[Start] – [End]',
+    teamSize: '[X]-person team',
     title: 'Distributed Payment System',
-    subtitle: 'Resilient payment orchestration across services and global settlement rails',
+    subtitle:
+      'Resilient payment orchestration across services with event-driven settlement and real-time reconciliation.',
     problem:
       'The business needed a distributed payment backbone that could process real-time transactions, recover from service failures, and reconcile settlements without manual intervention.',
     architecture:
       'Event-driven payment mesh built on Spring Boot microservices, Kafka for reliable event delivery, PostgreSQL for ledger storage, and idempotent APIs for safe retries across service boundaries.',
-    technologies: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Apache Kafka', 'Docker', 'Kubernetes', 'Distributed Systems'],
-    decisions:
-      'I designed a failure-safe payment workflow with compensating transactions, eventual consistency for settlement, and strong audit trails for each money movement.',
     impact:
       'Enabled cross-service payment processing with 99.98% uptime, reduced reconciliation effort by 70%, and supported high-volume settlement spikes with deterministic recovery.',
-    lessons:
-      'Distributed payments require clear failure boundaries, explicit state transitions, and a reconciliation-first architecture to keep money moving safely.',
+    technologies: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Apache Kafka', 'Docker', 'Kubernetes'],
     icon: Wallet,
   },
   {
-    title: 'Logistics Management Platform',
-    subtitle: 'Scaling real-time tracking, workflows, and operations for fleet management',
+    company: '[Company Name]',
+    role: 'Frontend Engineer',
+    location: 'Budapest, Hungary (Remote)',
+    period: '[Start] – [End]',
+    teamSize: '[X]-person team',
+    title: 'Real-Time Logistics Platform',
+    subtitle:
+      'Fleet management dashboard with live tracking, route optimization, and driver verification.',
     problem:
-      'A logistics operator required a resilient web system to monitor shipments, coordinate routes, and provide live updates across distributed teams.',
+      'A logistics operator required a resilient web system to monitor shipments, coordinate routes, and provide live updates across distributed teams — with trusted driver verification and proof-of-address checks.',
     architecture:
-      'The solution combined a React dashboard, a real-time API layer with WebSockets, a microservices domain model on Spring Boot, and containerized deployments for service isolation.',
-    technologies: ['React', 'TypeScript', 'WebSockets', 'Spring Boot', 'Docker', 'Kubernetes', 'PostgreSQL', 'Redis'],
-    decisions:
-      'I led the API design for event-driven state synchronization, introduced typed message contracts, and optimized route display performance for high-volume tracking dashboards.',
+      'React dashboard with a real-time API layer using WebSockets, a microservices backend on Spring Boot, and containerized deployments for service isolation.',
     impact:
-      'Enabled 24/7 operational visibility, accelerated task resolution, and reduced route latency by 40% in peak hours.',
-    lessons:
-      'Real-time logistics requires close alignment between product operations and engineering standards to keep the system dependable under load.',
+      'Enabled 24/7 operational visibility, accelerated task resolution, and reduced route latency by 40% in peak hours. Driver verification improved operational trust from the first rollout.',
+    technologies: ['React', 'TypeScript', 'WebSockets', 'Spring Boot', 'Docker', 'PostgreSQL', 'Redis'],
     icon: Truck,
   },
+];
+
+// ─── ADDITIONAL EXPERIENCE (collapsed / brief) ────────────────────────────────
+
+export const additionalExperience = [
   {
-    title: 'Enterprise Design System',
-    subtitle: 'Delivering a reusable design system for cross-team product velocity',
-    problem:
-      'Multiple product teams needed consistent UI components, accessible patterns, and shared documentation to accelerate feature delivery.',
-    architecture:
-      'A component library built with React, Storybook-driven documentation, standardized tokens, and a release process that integrated with CI/CD pipelines for automated package publication.',
-    technologies: ['React', 'Storybook', 'TypeScript', 'Tailwind CSS', 'Cypress', 'Jest', 'Nx'],
-    decisions:
-      'I enforced strict accessibility rules, created composable primitives, and built a validation layer for design tokens that prevented inconsistent styling across teams.',
-    impact:
-      'Cut onboarding time for new product engineers by 50% and improved cross-team consistency in interfaces across multiple enterprise applications.',
-    lessons:
-      'A strong design system is a long-term investment that compounds through faster delivery, fewer regressions, and better brand trust.',
-    icon: Sparkles,
+    company: 'Sterling Bank',
+    role: 'Frontend Engineer',
+    period: '[Start] – [End]',
+    description: 'Built loan application platform with intake, approval workflows, and branch coordination. Delivered account opening channel and card portal used across all branches.',
+  },
+  {
+    company: '[Company Name]',
+    role: 'Frontend Engineer',
+    period: '[Start] – [End]',
+    description: 'Created enterprise design system with React, Storybook, and accessibility-first patterns. Cut onboarding time for new engineers by 50%.',
   },
 ];
 
-export const clientOutcomes = [
-  {
-    title: 'Trusted logistics marketplace',
-    subtitle: 'Short-term startup delivery in Hungary',
-    description:
-      'Built a fast-launch order-to-rider matching app for a logistic startup, using trusted driver verification, document submission, and proof-of-address checks.',
-    impact:
-      'Helped the startup achieve a reliable delivery flow that matched orders to verified riders and improved operational trust from the first rollout.',
-    technologies: ['React', 'TypeScript', 'Realtime APIs', 'Driver verification', 'Logistics workflows'],
-  },
-  {
-    title: 'Loan application and approval workflow',
-    subtitle: 'Sterling financial delivery',
-    description:
-      'Delivered a loan application platform with intake, inputter handoff, and approval flow to support faster decision-making and better branch coordination.',
-    impact:
-      'Streamlined loan operations and improved approval visibility while preserving compliance controls and auditability.',
-    technologies: ['React', 'Spring Boot', 'Workflow automation', 'Loan origination', 'Branch operations'],
-  },
-  {
-    title: 'Branch account opening and card portal',
-    subtitle: 'Alternative bank channel platform',
-    description:
-      'Built an account opening channel used across branches and a card portal system that tracked cards, supported branch operations, and integrated with takaful insurance workflows.',
-    impact:
-      'Unified account onboarding and card management for all branches, making branch channels more consistent and easier to operate.',
-    technologies: ['React', 'Branch integration', 'Card operations', 'Account onboarding', 'Insurance integration'],
-  },
-];
+// ─── PROJECTS ──────────────────────────────────────────────────────────────────
 
-export const architectureHighlights = [
-  {
-    title: 'CBN Compliance Layer',
-    description:
-      'KYC tier enforcement, CBN daily/single transaction limits, AML flagging above ₦5m, and idempotency controls built at the domain layer — not as afterthoughts.',
-  },
-  {
-    title: 'Event-Driven Fintech',
-    description:
-      'Kafka-backed async transaction processing and notification delivery, keeping the critical path fast while guaranteeing durable message delivery.',
-  },
-  {
-    title: 'Multi-Tenant Architecture',
-    description:
-      'Tenant-scoped data isolation for SaaS platforms serving accountants, end users, and admin roles — with dynamic routing, caching, and role-scoped access per tenant.',
-  },
-  {
-    title: 'Frontend Architecture',
-    description:
-      'Component-driven pages with server rendering, progressive loading, and strong typing to keep large surfaces maintainable.',
-  },
-  {
-    title: 'Microservices & CI/CD',
-    description:
-      'Domain-oriented services with clear contracts, containerized deployments, and fast pipelines with quality gates and production-safe rollouts.',
-  },
-  {
-    title: 'Cloud Infrastructure',
-    description:
-      'AWS deployments with EKS, managed databases, secure networking, and observability built into the release lifecycle.',
-  },
-];
-
-export const leadershipItems = [
-  {
-    title: 'Engineering Leadership',
-    text: 'I lead cross-functional teams through architecture reviews, roadmap planning, and delivery execution for high-stakes platforms.',
-  },
-  {
-    title: 'Mentoring & Coaching',
-    text: 'I support engineers with code reviews, paired design sessions, and career growth conversations that improve team velocity.',
-  },
-  {
-    title: 'Architecture Decisions',
-    text: 'I drive scalable technical decisions that align engineering tradeoffs with business outcomes, security, and reliability.',
-  },
-  {
-    title: 'Cross-functional Collaboration',
-    text: 'I partner with product, design, operations, and security to ensure successful launches and sustainable platforms.',
-  },
-];
-
-export const githubProjects = [
-  {
-    title: 'Wallet System',
-    description:
-      'Production-grade CBN-compliant wallet with KYC tier enforcement, AML flagging, double-entry GL ledger, Kafka async processing, and interbank transfer simulation.',
-    highlights: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Redis', 'Apache Kafka', 'Docker'],
-    href: 'https://github.com/wallet-system',
-  },
-  {
-    title: 'Distributed Payment System',
-    description:
-      'Secure, event-driven payment orchestration for global rails, resilient settlement workflows, and real-time reconciliation across services.',
-    highlights: ['Java', 'Spring Boot', 'PostgreSQL', 'Apache Kafka', 'Distributed Systems'],
-    href: 'https://github.com/seyi-adeoti/distributed-payment-system',
-  },
-  {
-    title: 'Enterprise Design System',
-    description: 'Shared component library with Storybook, design tokens, and accessibility-first patterns.',
-    highlights: ['React', 'Storybook', 'TypeScript', 'Tailwind CSS', 'Testing'],
-    href: 'https://github.com/seyi-adeoti/enterprise-design-system',
-  },
-];
-
-export const sideProjects = [
+export const projects = [
   {
     title: 'Lekture',
     subtitle: 'Tech Learning Marketplace',
-    description: 'Connect students and teachers to learn tech skills. Realtime matching, course discovery, and video integration.',
-    highlights: ['React', 'TypeScript', 'Next.js', 'Real-time API', 'Responsive Design'],
+    description:
+      'Full-stack marketplace connecting students and instructors. Features real-time matching with WebSocket-based notifications, server-rendered course discovery, and integrated video streaming. Built responsive UI supporting 3 user roles with distinct dashboards.',
+    highlights: ['React', 'TypeScript', 'Next.js', 'WebSockets', 'Responsive Design'],
     href: 'https://lekture-fe.vercel.app/',
     github: 'https://github.com/seyi-adeoti/lekture',
     live: true,
   },
+  {
+    title: 'Wallet System',
+    description:
+      'Production-grade digital wallet with identity verification tier enforcement, AML flagging, double-entry GL ledger, Kafka async processing, and interbank transfer simulation.',
+    highlights: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Redis', 'Apache Kafka', 'Docker'],
+    href: null,
+    github: 'https://github.com/wallet-system',
+    live: false,
+  },
+  {
+    title: 'Distributed Payment System',
+    description:
+      'Event-driven payment orchestration for resilient settlement workflows and real-time reconciliation across services.',
+    highlights: ['Java', 'Spring Boot', 'PostgreSQL', 'Apache Kafka', 'Distributed Systems'],
+    href: null,
+    github: 'https://github.com/seyi-adeoti/distributed-payment-system',
+    live: false,
+  },
 ];
 
-export const testimonials = [
-  {
-    quote:
-      'Adeoti takes ownership of complex systems and elevates engineering standards while keeping delivery practical.',
-    author: 'Head of Engineering, Global FinTech',
-  },
-  {
-    quote:
-      'He builds for scale and reliability, with strong communication across product, design, and operations.',
-    author: 'Product Director, Logistics Platform',
-  },
-];
+// ─── CONTACT ───────────────────────────────────────────────────────────────────
 
 export const contactLinks = [
   { label: 'Email', value: 'oluwaseyiadeoti825@gmail.com', href: 'mailto:oluwaseyiadeoti825@gmail.com', icon: 'Mail' },
   { label: 'GitHub', value: 'github.com/seyi-adeoti', href: 'https://github.com/seyi-adeoti', icon: 'Github' },
-  // { label: 'LinkedIn', value: 'linkedin.com/in/seyi-adeoti', href: 'https://linkedin.com/in/seyi-adeoti', icon: 'Linkedin' },
+  { label: 'LinkedIn', value: 'linkedin.com/in/seyi-adeoti', href: 'https://linkedin.com/in/seyi-adeoti', icon: 'Linkedin' },
 ];
