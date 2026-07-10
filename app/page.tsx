@@ -1,10 +1,13 @@
 import { ArrowUpRight, Github, Linkedin, Mail, Sparkles } from 'lucide-react';
-import { MotionDiv } from '../components/ui/client-motion';
 import { LinkButton } from '../components/ui/button';
 import { Card } from '../components/ui/card';
-import { Section } from '../components/ui/section';
 import { SectionHeading } from '../components/ui/heading';
 import { Tag } from '../components/ui/tag';
+import { Navbar } from '../components/ui/navbar';
+import { Footer } from '../components/ui/footer';
+import { GradientOrbs, SectionGlow } from '../components/ui/gradient-orb';
+import { ScrollReveal, StaggerContainer, StaggerItem } from '../components/ui/scroll-reveal';
+import { HeroTerminal } from './hero-terminal';
 import {
   architectureHighlights,
   caseStudies,
@@ -15,7 +18,6 @@ import {
   leadershipItems,
   lookingFor,
   metrics,
-  navItems,
   processSteps,
   proofPoints,
   sideProjects,
@@ -23,432 +25,546 @@ import {
   whyHireMe,
 } from '../lib/data';
 
-const reveal = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
-
 export default function Home() {
   return (
-    <main className="relative overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-[380px] bg-gradient-to-b from-slate-900 to-transparent opacity-90" />
-      <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-8 sm:px-8">
-        <header className="sticky top-0 z-30 mb-12 rounded-3xl border border-white/10 bg-slate-950/75 backdrop-blur-3xl px-6 py-4 shadow-glow sm:px-8">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-3 text-sm text-slate-300">
-              <span className="rounded-full border border-accent/30 bg-accent/10 px-3 py-1 font-medium text-accent">Full stack Engineer</span>
-              <span className="text-slate-300">Open to local and international opportunities with relocation & visa support</span>
-            </div>
-            <nav className="hidden items-center gap-6 text-sm text-slate-300 md:flex">
-              {navItems.map((item) => (
-                <a key={item.href} href={item.href} className="transition hover:text-white">
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-          </div>
-        </header>
+    <>
+      <Navbar />
 
-        <Section id="hero" className="relative overflow-hidden grid gap-10 pb-24 pt-16 md:grid-cols-[1.45fr_1fr] md:items-center md:gap-16">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-[520px]" />
+      <main className="relative overflow-hidden">
+        {/* ───────────────────── HERO ───────────────────── */}
+        <section id="hero" className="relative min-h-screen flex items-center pt-20">
+          <GradientOrbs />
 
-          <MotionDiv initial={false} animate="visible" variants={reveal} transition={{ duration: 0.75 }} className="relative z-10">
-            <div className="inline-flex items-center gap-4 rounded-full border border-white/10 bg-slate-950/75 px-4 py-2 text-xs uppercase tracking-[0.35em] text-accent/90 shadow-[0_24px_88px_rgba(0,0,0,0.18)]">
-              <span className="font-semibold text-white">Distributed payments</span>
-              <span className="text-slate-300">API-first architecture</span>
-            </div>
-            <h1 className="mt-10 max-w-3xl text-5xl font-semibold tracking-tight text-white sm:text-6xl md:text-7xl">
-              Fast, resilient payment systems built for enterprise-scale operations.
-            </h1>
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
-              I design and deliver distributed payment platforms with secure rails, event-driven settlements, and strong engineering discipline for global growth.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              {heroBadges.map((badge) => (
-                <Tag key={badge} className="rounded-full bg-white/5 px-4 py-2 text-sm text-slate-200 border border-white/10 ring-1 ring-white/5">
-                  {badge}
-                </Tag>
-              ))}
-            </div>
-            <div className="mt-12 flex flex-col gap-4 sm:flex-row">
-              <LinkButton href="#case-studies" className="btn-primary shadow-glow">
-                View Engineering Case Studies
-              </LinkButton>
-              <LinkButton href="/ADEOTI-SEYI-CV.pdf" target="_blank" className="btn-secondary">
-                Download Resume
-              </LinkButton>
-            </div>
-          </MotionDiv>
-
-          <MotionDiv
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="hero-card relative z-10 mx-auto w-full max-w-lg overflow-hidden"
-          >
-            <div className="flex items-center justify-between gap-4 rounded-3xl bg-slate-900/85 px-4 py-3 text-sm text-slate-300">
-              <div className="flex items-center gap-3">
-                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_0_8px_rgba(94,234,212,0.12)]" />
-                <span className="font-semibold text-white">Live API preview</span>
-              </div>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.65rem] uppercase tracking-[0.35em] text-slate-400">
-                HTTP
-              </span>
-            </div>
-            <div className="mt-6 rounded-[1.75rem] border border-slate-800 bg-slate-950/90 p-6">
-              <div className="mb-4 flex items-center justify-between text-xs uppercase tracking-[0.32em] text-slate-500">
-                <span>GET /health</span>
-                <span>JSON</span>
-              </div>
-              <pre className="whitespace-pre-wrap text-sm leading-7 text-slate-200">
-                <code>{`$ curl -X GET https://api.distributed-payments.com/health
-200 OK
-
-$ curl -X POST https://api.distributed-payments.com/transactions
-  -H "Content-Type: application/json"
-  -d '{"amount": 12500, "currency": "USD", "source": "wallet", "destination": "settlement"}'
-202 Accepted`}</code>
-              </pre>
-            </div>
-          </MotionDiv>
-        </Section>
-
-        <Section id="metrics" className="space-y-8">
-          <SectionHeading>Impact metrics</SectionHeading>
-          <p className="section-subtitle">
-            These are the measurable outcomes from enterprise and fintech work that signal scale, resilience, and engineering maturity.
-          </p>
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
-            {metrics.map((metric) => (
-              <Card key={metric.label} className="p-6">
-                <p className="text-4xl font-semibold text-white">{metric.value}</p>
-                <p className="mt-3 text-sm uppercase tracking-[0.2em] text-slate-400">{metric.label}</p>
-              </Card>
-            ))}
-          </div>
-        </Section>
-
-        <Section id="proof-points" className="space-y-10">
-          <div className="space-y-3">
-            <SectionHeading>Engineering proof points</SectionHeading>
-            <p className="section-subtitle">
-              Evidence of the technical practices and platform maturity that support enterprise delivery.
-            </p>
-          </div>
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {proofPoints.map((point) => (
-              <MotionDiv key={point.title} whileHover={{ y: -4 }} className="transition">
-                <Card className="space-y-4 p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-accent/10 text-accent">
-                    <point.icon className="h-6 w-6" />
+          <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-24 sm:px-8">
+            <div className="grid gap-12 md:grid-cols-[1.4fr_1fr] md:items-center md:gap-16">
+              {/* Left — Text */}
+              <div>
+                <ScrollReveal delay={0.1}>
+                  <div className="inline-flex items-center gap-3 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-xs">
+                    <span className="flex items-center gap-2">
+                      <span className="relative flex h-2 w-2">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent/60" />
+                        <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+                      </span>
+                      <span className="font-semibold text-white">Full Stack Engineer</span>
+                    </span>
+                    <span className="h-3 w-px bg-white/10" />
+                    <span className="text-slate-500">Open to opportunities worldwide</span>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-white">{point.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-300">{point.description}</p>
-                  </div>
-                </Card>
-              </MotionDiv>
-            ))}
-          </div>
-        </Section>
+                </ScrollReveal>
 
-        <Section id="case-studies" className="space-y-10">
-          <div className="space-y-3">
-            <div className="rounded-full bg-white/5 px-4 py-2 text-sm uppercase tracking-[0.26em] text-accent">Engineering case studies</div>
-            <SectionHeading>Detailed delivery stories for enterprise systems</SectionHeading>
-            <p className="section-subtitle">
-              Each case study explains the problem, architecture, tradeoffs, and the business impact behind the work.
-            </p>
-          </div>
-          <div className="grid gap-6 xl:grid-cols-3">
-            {caseStudies.map((caseStudy) => (
-              <Card key={caseStudy.title} className="space-y-6 p-6">
-                <div className="flex items-center gap-3 text-accent">
-                  <caseStudy.icon className="h-5 w-5" />
-                  <span className="text-sm uppercase tracking-[0.2em]">Case study</span>
-                </div>
-                <div className="space-y-3">
-                  <h3 className="text-2xl font-semibold text-white">{caseStudy.title}</h3>
-                  <p className="text-sm text-slate-400">{caseStudy.subtitle}</p>
-                </div>
-                <div className="space-y-4 text-sm text-slate-300">
-                  <div>
-                    <p className="font-semibold text-white">Problem</p>
-                    <p className="mt-2">{caseStudy.problem}</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-white">Architecture</p>
-                    <p className="mt-2">{caseStudy.architecture}</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-white">Impact</p>
-                    <p className="mt-2">{caseStudy.impact}</p>
-                  </div>
-                </div>
-                <div className="rounded-3xl border border-white/10 bg-slate-950/40 p-4 text-sm text-slate-300">
-                  <p className="font-semibold text-white">Engineering decisions</p>
-                  <p className="mt-2">{caseStudy.decisions}</p>
-                  <p className="mt-4 text-slate-400">
-                    Lessons learned: {caseStudy.lessons}
+                <ScrollReveal delay={0.2}>
+                  <h1 className="mt-8 max-w-2xl text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl !leading-[1.1]">
+                    Fast, resilient
+                    <span className="text-gradient"> payment systems </span>
+                    built for scale.
+                  </h1>
+                </ScrollReveal>
+
+                <ScrollReveal delay={0.3}>
+                  <p className="mt-6 max-w-xl text-base leading-8 text-slate-400 sm:text-lg">
+                    I design and deliver distributed payment platforms with secure rails,
+                    event-driven settlements, and strong engineering discipline for global growth.
                   </p>
-                </div>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {caseStudy.technologies.map((tech) => (
-                    <Tag key={tech} className="bg-white/5 text-slate-300">
-                      {tech}
-                    </Tag>
-                  ))}
-                </div>
-              </Card>
-            ))}
-          </div>
-        </Section>
-        <Section id="client-outcomes" className="space-y-10">
-          <div className="space-y-3">
-            <SectionHeading>Client outcomes</SectionHeading>
-            <p className="section-subtitle">
-              Local and operational delivery stories from startups, branch banking, and cross-channel platforms.
-            </p>
-          </div>
-          <div className="grid gap-6 xl:grid-cols-3">
-            {clientOutcomes.map((item) => (
-              <Card key={item.title} className="space-y-6 p-6">
-                <div className="flex items-center gap-3 text-accent">
-                  <Sparkles className="h-5 w-5" />
-                  <span className="text-sm uppercase tracking-[0.2em]">Client outcome</span>
-                </div>
-                <div className="space-y-3">
-                  <h3 className="text-2xl font-semibold text-white">{item.title}</h3>
-                  <p className="text-sm text-slate-400">{item.subtitle}</p>
-                </div>
-                <div className="space-y-4 text-sm text-slate-300">
-                  <p>{item.description}</p>
-                  <div>
-                    <p className="font-semibold text-white">Impact</p>
-                    <p className="mt-2">{item.impact}</p>
-                  </div>
-                </div>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {item.technologies.map((tech) => (
-                    <Tag key={tech} className="bg-white/5 text-slate-300">
-                      {tech}
-                    </Tag>
-                  ))}
-                </div>
-              </Card>
-            ))}
-          </div>
-        </Section>
-        <Section id="architecture" className="space-y-10">
-          <div className="space-y-3">
-            <SectionHeading>Architecture showcase</SectionHeading>
-            <p className="section-subtitle">
-              A clear view of the patterns, infrastructure, and systems that power large enterprise products.
-            </p>
-          </div>
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-            {architectureHighlights.map((item) => (
-              <Card key={item.title} className="space-y-4 p-6">
-                <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-                <p className="text-sm leading-7 text-slate-300">{item.description}</p>
-              </Card>
-            ))}
-          </div>
-        </Section>
+                </ScrollReveal>
 
-        <Section id="process" className="space-y-10">
-          <div className="space-y-3">
-            <SectionHeading>How I work</SectionHeading>
-            <p className="section-subtitle">
-              A practical delivery rhythm for enterprise engineering, from discovery through operations.
-            </p>
-          </div>
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {processSteps.map((step) => (
-              <MotionDiv key={step.title} whileHover={{ y: -4 }} className="transition">
-                <Card className="space-y-4 p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-white/5 text-accent">
-                    <step.icon className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-white">{step.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-300">{step.description}</p>
-                  </div>
-                </Card>
-              </MotionDiv>
-            ))}
-          </div>
-        </Section>
-
-        <Section id="leadership" className="space-y-10">
-          <div className="space-y-3">
-            <SectionHeading>Technical leadership</SectionHeading>
-            <p className="section-subtitle">
-              I operate beyond code: growing teams, reviewing architecture, and aligning engineering outcomes with business needs.
-            </p>
-          </div>
-          <div className="grid gap-5 md:grid-cols-2">
-            {leadershipItems.map((item) => (
-              <Card key={item.title} className="space-y-3 p-6">
-                <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-                <p className="text-sm leading-7 text-slate-300">{item.text}</p>
-              </Card>
-            ))}
-          </div>
-        </Section>
-
-        <Section id="github" className="space-y-10">
-          <div className="space-y-3">
-            <SectionHeading>GitHub showcase</SectionHeading>
-            <p className="section-subtitle">
-              Flagship repositories that demonstrate enterprise fintech architecture, shared component systems, and service-oriented engineering practices.
-            </p>
-          </div>
-          <div className="grid gap-5 xl:grid-cols-2">
-            {githubProjects.map((project) => (
-              <a key={project.title} href={project.href} target="_blank" rel="noopener noreferrer" className="transition hover:opacity-80">
-                <Card className="space-y-4 p-6 h-full">
-                  <div className="flex items-center justify-between gap-3">
-                    <div>
-                      <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-                      <p className="mt-2 text-sm text-slate-400">{project.description}</p>
-                    </div>
-                    <Github className="h-6 w-6 text-accent flex-shrink-0" />
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {project.highlights.map((item) => (
-                      <Tag key={item}>{item}</Tag>
+                <ScrollReveal delay={0.4}>
+                  <div className="mt-8 flex flex-wrap gap-2">
+                    {heroBadges.map((badge) => (
+                      <span
+                        key={badge}
+                        className="rounded-full border border-white/[0.06] bg-white/[0.03] px-3.5 py-1.5 text-xs text-slate-400 transition hover:border-accent/20 hover:text-slate-300"
+                      >
+                        {badge}
+                      </span>
                     ))}
                   </div>
-                  <div className="flex items-center gap-2 pt-2 text-sm text-accent font-semibold">
-                    View on GitHub <ArrowUpRight className="h-4 w-4" />
+                </ScrollReveal>
+
+                <ScrollReveal delay={0.5}>
+                  <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+                    <LinkButton href="#case-studies" variant="primary">
+                      View Case Studies
+                    </LinkButton>
+                    <LinkButton href="/ADEOTI-SEYI-CV.pdf" target="_blank" variant="secondary">
+                      Download Resume
+                    </LinkButton>
                   </div>
-                </Card>
-              </a>
-            ))}
-          </div>
-        </Section>
-
-        <Section id="side-projects" className="space-y-10">
-          <div className="space-y-3">
-            <SectionHeading>Featured side projects</SectionHeading>
-            <p className="section-subtitle">
-              Current projects showcasing full-stack capabilities and real-world product thinking.
-            </p>
-          </div>
-          <div className="grid gap-5 xl:grid-cols-1">
-            {sideProjects.map((project) => (
-              <Card key={project.title} className="space-y-6 p-6">
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between gap-3">
-                    <div>
-                      <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
-                      <p className="mt-1 text-sm text-slate-400 font-medium">{project.subtitle}</p>
-                    </div>
-                    {project.live && <div className="rounded-full bg-green-500/20 px-3 py-1 text-xs uppercase tracking-[0.2em] text-green-400 font-semibold">Live</div>}
-                  </div>
-                  <p className="text-base leading-7 text-slate-300">{project.description}</p>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {project.highlights.map((item) => (
-                    <Tag key={item}>{item}</Tag>
-                  ))}
-                </div>
-                <div className="flex flex-col gap-3 pt-2 sm:flex-row">
-                  <LinkButton href={project.href} target="_blank" className="btn-primary flex-1 shadow-glow">
-                    View Live <ArrowUpRight className="ml-2 h-4 w-4" />
-                  </LinkButton>
-                  <LinkButton href={project.github} target="_blank" className="flex-1">
-                    GitHub <ArrowUpRight className="ml-2 h-4 w-4" />
-                  </LinkButton>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </Section>
-
-        <Section id="testimonials" className="space-y-10">
-          <div className="space-y-3">
-            <SectionHeading>Testimonials</SectionHeading>
-            <p className="section-subtitle">
-              Trusted feedback from senior stakeholders and product partners on delivery, quality, and leadership.
-            </p>
-          </div>
-          <div className="grid gap-5 xl:grid-cols-2">
-            {testimonials.map((item) => (
-              <Card key={item.author} className="space-y-4 p-8">
-                <p className="text-lg leading-8 text-slate-100">“{item.quote}”</p>
-                <p className="text-sm uppercase tracking-[0.24em] text-slate-400">{item.author}</p>
-              </Card>
-            ))}
-          </div>
-        </Section>
-
-        <Section id="opportunities" className="space-y-8">
-          <div className="rounded-3xl border border-accent/20 bg-gradient-to-br from-slate-950/80 to-slate-900/80 p-8 shadow-glow">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <p className="text-sm uppercase tracking-[0.2em] text-accent">Available for local and international opportunities</p>
-                <h3 className="mt-3 text-3xl font-semibold text-white">Open to local, remote, hybrid, relocation, and visa sponsorship roles.</h3>
+                </ScrollReveal>
               </div>
-              <LinkButton href="#contact">Let’s talk</LinkButton>
+
+              {/* Right — Terminal */}
+              <ScrollReveal delay={0.4} direction="right">
+                <HeroTerminal />
+              </ScrollReveal>
             </div>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {lookingFor.map((item) => (
-                <div key={item} className="rounded-3xl border border-white/10 bg-white/5 p-4 text-sm text-slate-300">
-                  {item}
-                </div>
+          </div>
+
+          {/* Bottom gradient fade */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent" />
+        </section>
+
+        {/* ───────────────────── METRICS ───────────────────── */}
+        <section id="metrics" className="section-divider relative">
+          <SectionGlow position="right" />
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8">
+            <ScrollReveal>
+              <SectionHeading>Impact metrics</SectionHeading>
+              <p className="section-subtitle">
+                Measurable outcomes from enterprise and fintech work that signal scale, resilience, and engineering maturity.
+              </p>
+            </ScrollReveal>
+
+            <StaggerContainer className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+              {metrics.map((metric) => (
+                <StaggerItem key={metric.label}>
+                  <Card className="p-6 text-center sm:text-left">
+                    <p className="text-3xl font-semibold text-white sm:text-4xl">{metric.value}</p>
+                    <p className="mt-2 text-xs uppercase tracking-[0.2em] text-slate-500">{metric.label}</p>
+                  </Card>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
-        </Section>
+        </section>
 
-        <Section id="why-hire" className="space-y-10">
-          <div className="space-y-3">
-            <SectionHeading>Why hire me?</SectionHeading>
-            <p className="section-subtitle">
-              This is the leadership, delivery, and relocation-ready capability that makes a senior engineering hire worth the commitment.
-            </p>
-          </div>
-          <div className="grid gap-5 md:grid-cols-3">
-            {whyHireMe.map((item) => (
-              <Card key={item.title} className="space-y-4 p-6">
-                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                <p className="text-sm leading-7 text-slate-300">{item.text}</p>
-              </Card>
-            ))}
-          </div>
-        </Section>
+        {/* ───────────────────── PROOF POINTS ───────────────────── */}
+        <section id="proof-points" className="section-divider relative">
+          <SectionGlow position="left" />
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8">
+            <ScrollReveal>
+              <SectionHeading>Engineering proof points</SectionHeading>
+              <p className="section-subtitle">
+                Evidence of the technical practices and platform maturity that support enterprise delivery.
+              </p>
+            </ScrollReveal>
 
-        <Section id="contact" className="space-y-8">
-          <div className="space-y-3">
-            <SectionHeading>Contact</SectionHeading>
-            <p className="section-subtitle">
-              Interested in building scalable software together? Reach out via email, GitHub, or LinkedIn and let's shape the next enterprise platform.
-            </p>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {contactLinks.map((item) => {
-              let IconComponent = Mail;
-              if (item.label === 'GitHub') IconComponent = Github;
-              if (item.label === 'LinkedIn') IconComponent = Linkedin;
-              return (
-                <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className="transition hover:opacity-80">
-                  <Card className="flex flex-col justify-between p-6 h-full">
-                    <div className="flex items-center gap-3 text-accent">
-                      <IconComponent className="h-5 w-5" />
-                      <span className="font-semibold text-white">{item.label}</span>
+            <StaggerContainer className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              {proofPoints.map((point) => (
+                <StaggerItem key={point.title}>
+                  <Card className="space-y-4 p-6 h-full">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                      <point.icon className="h-5 w-5" />
                     </div>
-                    <div className="mt-4 space-y-2">
-                      <p className="text-sm text-slate-300">{item.value}</p>
-                      <div className="flex items-center gap-1 text-sm text-accent font-semibold">
-                        Connect <ArrowUpRight className="h-4 w-4" />
+                    <div>
+                      <h3 className="text-base font-semibold text-white">{point.title}</h3>
+                      <p className="mt-2 text-sm leading-7 text-slate-400">{point.description}</p>
+                    </div>
+                  </Card>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </section>
+
+        {/* ───────────────────── CASE STUDIES ───────────────────── */}
+        <section id="case-studies" className="section-divider relative">
+          <SectionGlow position="center" />
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8">
+            <ScrollReveal>
+              <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/[0.05] px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-accent">
+                <Sparkles className="h-3.5 w-3.5" />
+                Engineering case studies
+              </div>
+              <SectionHeading className="mt-4">Detailed delivery stories</SectionHeading>
+              <p className="section-subtitle">
+                Each case study explains the problem, architecture, tradeoffs, and the business impact behind the work.
+              </p>
+            </ScrollReveal>
+
+            <StaggerContainer className="mt-10 grid gap-6 xl:grid-cols-3">
+              {caseStudies.map((cs) => (
+                <StaggerItem key={cs.title}>
+                  <Card className="flex h-full flex-col space-y-5 p-6">
+                    <div className="flex items-center gap-2.5 text-accent">
+                      <cs.icon className="h-4 w-4" />
+                      <span className="text-xs uppercase tracking-[0.2em]">Case study</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-white">{cs.title}</h3>
+                      <p className="mt-1 text-sm text-slate-500">{cs.subtitle}</p>
+                    </div>
+                    <div className="space-y-3 text-sm">
+                      <div>
+                        <p className="font-semibold text-slate-300">Problem</p>
+                        <p className="mt-1 text-slate-500 leading-7">{cs.problem}</p>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-slate-300">Architecture</p>
+                        <p className="mt-1 text-slate-500 leading-7">{cs.architecture}</p>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-slate-300">Impact</p>
+                        <p className="mt-1 text-slate-500 leading-7">{cs.impact}</p>
+                      </div>
+                    </div>
+                    <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-sm">
+                      <p className="font-semibold text-slate-300">Engineering decisions</p>
+                      <p className="mt-1 text-slate-500 leading-7">{cs.decisions}</p>
+                      <p className="mt-3 text-xs text-slate-600">Lessons: {cs.lessons}</p>
+                    </div>
+                    <div className="mt-auto flex flex-wrap gap-1.5 pt-2">
+                      {cs.technologies.map((tech) => (
+                        <Tag key={tech}>{tech}</Tag>
+                      ))}
+                    </div>
+                  </Card>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </section>
+
+        {/* ───────────────────── CLIENT OUTCOMES ───────────────────── */}
+        <section id="client-outcomes" className="section-divider relative">
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8">
+            <ScrollReveal>
+              <SectionHeading>Client outcomes</SectionHeading>
+              <p className="section-subtitle">
+                Local and operational delivery stories from startups, branch banking, and cross-channel platforms.
+              </p>
+            </ScrollReveal>
+
+            <StaggerContainer className="mt-10 grid gap-6 xl:grid-cols-3">
+              {clientOutcomes.map((item) => (
+                <StaggerItem key={item.title}>
+                  <Card className="flex h-full flex-col space-y-5 p-6">
+                    <div className="flex items-center gap-2.5 text-accent">
+                      <Sparkles className="h-4 w-4" />
+                      <span className="text-xs uppercase tracking-[0.2em]">Client outcome</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                      <p className="mt-1 text-sm text-slate-500">{item.subtitle}</p>
+                    </div>
+                    <div className="space-y-3 text-sm">
+                      <p className="text-slate-500 leading-7">{item.description}</p>
+                      <div>
+                        <p className="font-semibold text-slate-300">Impact</p>
+                        <p className="mt-1 text-slate-500 leading-7">{item.impact}</p>
+                      </div>
+                    </div>
+                    <div className="mt-auto flex flex-wrap gap-1.5 pt-2">
+                      {item.technologies.map((tech) => (
+                        <Tag key={tech}>{tech}</Tag>
+                      ))}
+                    </div>
+                  </Card>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </section>
+
+        {/* ───────────────────── ARCHITECTURE ───────────────────── */}
+        <section id="architecture" className="section-divider relative">
+          <SectionGlow position="right" />
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8">
+            <ScrollReveal>
+              <SectionHeading>Architecture showcase</SectionHeading>
+              <p className="section-subtitle">
+                A clear view of the patterns, infrastructure, and systems that power large enterprise products.
+              </p>
+            </ScrollReveal>
+
+            <StaggerContainer className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              {architectureHighlights.map((item) => (
+                <StaggerItem key={item.title}>
+                  <Card className="space-y-3 p-6 h-full">
+                    <h3 className="text-base font-semibold text-white">{item.title}</h3>
+                    <p className="text-sm leading-7 text-slate-400">{item.description}</p>
+                  </Card>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </section>
+
+        {/* ───────────────────── PROCESS ───────────────────── */}
+        <section id="process" className="section-divider relative">
+          <SectionGlow position="left" />
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8">
+            <ScrollReveal>
+              <SectionHeading>How I work</SectionHeading>
+              <p className="section-subtitle">
+                A practical delivery rhythm for enterprise engineering, from discovery through operations.
+              </p>
+            </ScrollReveal>
+
+            <StaggerContainer className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              {processSteps.map((step, index) => (
+                <StaggerItem key={step.title}>
+                  <Card className="group relative space-y-4 p-6 h-full">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                        <step.icon className="h-5 w-5" />
+                      </div>
+                      <span className="text-xs font-semibold text-slate-600 uppercase tracking-[0.15em]">
+                        Step {index + 1}
+                      </span>
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold text-white">{step.title}</h3>
+                      <p className="mt-2 text-sm leading-7 text-slate-400">{step.description}</p>
+                    </div>
+                  </Card>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </section>
+
+        {/* ───────────────────── LEADERSHIP ───────────────────── */}
+        <section id="leadership" className="section-divider relative">
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8">
+            <ScrollReveal>
+              <SectionHeading>Technical leadership</SectionHeading>
+              <p className="section-subtitle">
+                I operate beyond code: growing teams, reviewing architecture, and aligning engineering outcomes with business needs.
+              </p>
+            </ScrollReveal>
+
+            <StaggerContainer className="mt-10 grid gap-4 md:grid-cols-2">
+              {leadershipItems.map((item) => (
+                <StaggerItem key={item.title}>
+                  <Card className="space-y-3 p-6 h-full">
+                    <h3 className="text-base font-semibold text-white">{item.title}</h3>
+                    <p className="text-sm leading-7 text-slate-400">{item.text}</p>
+                  </Card>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </section>
+
+        {/* ───────────────────── GITHUB ───────────────────── */}
+        <section id="github" className="section-divider relative">
+          <SectionGlow position="center" />
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8">
+            <ScrollReveal>
+              <SectionHeading>GitHub showcase</SectionHeading>
+              <p className="section-subtitle">
+                Flagship repositories that demonstrate enterprise fintech architecture, shared component systems, and service-oriented engineering.
+              </p>
+            </ScrollReveal>
+
+            <StaggerContainer className="mt-10 grid gap-5 xl:grid-cols-2">
+              {githubProjects.map((project) => (
+                <StaggerItem key={project.title}>
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block"
+                  >
+                    <Card className="flex h-full flex-col space-y-4 p-6">
+                      <div className="flex items-start justify-between gap-3">
+                        <div>
+                          <h3 className="text-lg font-semibold text-white group-hover:text-accent transition-colors duration-300">
+                            {project.title}
+                          </h3>
+                          <p className="mt-1.5 text-sm text-slate-500">{project.description}</p>
+                        </div>
+                        <Github className="h-5 w-5 flex-shrink-0 text-slate-600 transition group-hover:text-accent" />
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.highlights.map((item) => (
+                          <Tag key={item}>{item}</Tag>
+                        ))}
+                      </div>
+                      <div className="flex items-center gap-1.5 text-sm font-semibold text-accent opacity-0 transition-all duration-300 group-hover:opacity-100">
+                        View on GitHub <ArrowUpRight className="h-3.5 w-3.5" />
+                      </div>
+                    </Card>
+                  </a>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </section>
+
+        {/* ───────────────────── SIDE PROJECTS ───────────────────── */}
+        <section id="side-projects" className="section-divider relative">
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8">
+            <ScrollReveal>
+              <SectionHeading>Featured side projects</SectionHeading>
+              <p className="section-subtitle">
+                Current projects showcasing full-stack capabilities and real-world product thinking.
+              </p>
+            </ScrollReveal>
+
+            <div className="mt-10 space-y-5">
+              {sideProjects.map((project) => (
+                <ScrollReveal key={project.title}>
+                  <Card className="p-6 sm:p-8">
+                    <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+                      <div className="flex-1 space-y-4">
+                        <div className="flex items-center gap-3">
+                          <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
+                          {project.live && (
+                            <span className="flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-[0.65rem] uppercase tracking-[0.15em] text-emerald-400 font-semibold">
+                              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                              Live
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-sm text-slate-500">{project.subtitle}</p>
+                        <p className="text-sm leading-7 text-slate-400">{project.description}</p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {project.highlights.map((item) => (
+                            <Tag key={item}>{item}</Tag>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="flex gap-3">
+                        <LinkButton href={project.href} target="_blank" variant="primary">
+                          View Live <ArrowUpRight className="ml-1.5 h-3.5 w-3.5" />
+                        </LinkButton>
+                        <LinkButton href={project.github} target="_blank" variant="secondary">
+                          GitHub <ArrowUpRight className="ml-1.5 h-3.5 w-3.5" />
+                        </LinkButton>
                       </div>
                     </div>
                   </Card>
-                </a>
-              );
-            })}
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
-        </Section>
-      </div>
-    </main>
+        </section>
+
+        {/* ───────────────────── TESTIMONIALS ───────────────────── */}
+        <section id="testimonials" className="section-divider relative">
+          <SectionGlow position="left" />
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8">
+            <ScrollReveal>
+              <SectionHeading>Testimonials</SectionHeading>
+              <p className="section-subtitle">
+                Trusted feedback from senior stakeholders and product partners on delivery, quality, and leadership.
+              </p>
+            </ScrollReveal>
+
+            <StaggerContainer className="mt-10 grid gap-5 xl:grid-cols-2">
+              {testimonials.map((item) => (
+                <StaggerItem key={item.author}>
+                  <Card className="relative p-8 h-full">
+                    <div className="absolute -top-3 left-8 text-5xl font-serif text-accent/20">&ldquo;</div>
+                    <p className="text-base leading-8 text-slate-300">{item.quote}</p>
+                    <p className="mt-6 text-xs uppercase tracking-[0.2em] text-slate-600">{item.author}</p>
+                  </Card>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </section>
+
+        {/* ───────────────────── OPPORTUNITIES ───────────────────── */}
+        <section id="opportunities" className="section-divider relative">
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8">
+            <ScrollReveal>
+              <div className="relative overflow-hidden rounded-2xl border border-accent/10 bg-gradient-to-br from-accent/[0.04] to-transparent p-8 sm:p-10">
+                {/* Background accent glow */}
+                <div className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-accent/[0.06] blur-[80px]" />
+
+                <div className="relative z-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-accent">
+                      Available for opportunities
+                    </p>
+                    <h3 className="mt-3 text-2xl font-semibold text-white sm:text-3xl">
+                      Open to local, remote, hybrid & relocation roles.
+                    </h3>
+                  </div>
+                  <LinkButton href="#contact" variant="primary" className="flex-shrink-0">
+                    Let&apos;s talk
+                  </LinkButton>
+                </div>
+
+                <div className="relative z-10 mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                  {lookingFor.map((item) => (
+                    <div
+                      key={item}
+                      className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3.5 text-sm text-slate-400"
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* ───────────────────── WHY HIRE ME ───────────────────── */}
+        <section id="why-hire" className="section-divider relative">
+          <SectionGlow position="right" />
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8">
+            <ScrollReveal>
+              <SectionHeading>Why hire me?</SectionHeading>
+              <p className="section-subtitle">
+                Leadership, delivery, and relocation-ready capability that makes a senior engineering hire worth the commitment.
+              </p>
+            </ScrollReveal>
+
+            <StaggerContainer className="mt-10 grid gap-4 md:grid-cols-3">
+              {whyHireMe.map((item) => (
+                <StaggerItem key={item.title}>
+                  <Card className="space-y-3 p-6 h-full">
+                    <h3 className="text-base font-semibold text-white">{item.title}</h3>
+                    <p className="text-sm leading-7 text-slate-400">{item.text}</p>
+                  </Card>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </section>
+
+        {/* ───────────────────── CONTACT ───────────────────── */}
+        <section id="contact" className="section-divider relative">
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8">
+            <ScrollReveal>
+              <SectionHeading>Contact</SectionHeading>
+              <p className="section-subtitle">
+                Interested in building scalable software together? Reach out and let&apos;s shape the next enterprise platform.
+              </p>
+            </ScrollReveal>
+
+            <StaggerContainer className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {contactLinks.map((item) => {
+                let IconComponent = Mail;
+                if (item.label === 'GitHub') IconComponent = Github;
+                if (item.label === 'LinkedIn') IconComponent = Linkedin;
+                return (
+                  <StaggerItem key={item.label}>
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block"
+                    >
+                      <Card className="flex flex-col justify-between p-6 h-full">
+                        <div className="flex items-center gap-2.5">
+                          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent/10 text-accent transition group-hover:bg-accent/20">
+                            <IconComponent className="h-4 w-4" />
+                          </div>
+                          <span className="font-semibold text-white">{item.label}</span>
+                        </div>
+                        <div className="mt-4 space-y-2">
+                          <p className="text-sm text-slate-500">{item.value}</p>
+                          <div className="flex items-center gap-1 text-sm font-semibold text-accent opacity-0 transition group-hover:opacity-100">
+                            Connect <ArrowUpRight className="h-3.5 w-3.5" />
+                          </div>
+                        </div>
+                      </Card>
+                    </a>
+                  </StaggerItem>
+                );
+              })}
+            </StaggerContainer>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </>
   );
 }

@@ -1,17 +1,19 @@
-@import url('https://fonts.googleapis.com/css?family=Geom:300,regular,500,600,700,800,900,300italic,italic,500italic,600italic,700italic,800italic,900italic');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Design Tokens ─────────────────────────────────────────────────────────── */
 :root {
   color-scheme: dark;
-  background-color: #000000;
-  color: #ffffff;
-  font-family: 'Geom', system-ui, sans-serif;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  font-smooth: always;
-  font-variant-ligatures: common-ligatures;
+  --accent: #5eead4;
+  --accent-rgb: 94, 234, 212;
+  --surface: #000000;
+  --surface-raised: #0a0a0a;
+  --surface-card: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.06);
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
 }
 
 html {
@@ -22,70 +24,111 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
-  background: #000000;
-  color: #ffffff;
-  font-family: 'Geom', system-ui, sans-serif;
+  background: var(--surface);
+  color: var(--text-primary);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-smooth: always;
 }
 
 * {
   box-sizing: border-box;
 }
 
+/* ─── Selection ─────────────────────────────────────────────────────────────── */
 ::selection {
-  background: rgba(94, 234, 212, 0.24);
+  background: rgba(var(--accent-rgb), 0.2);
   color: #ffffff;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-p,
-ul {
+/* ─── Resets ────────────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, p, ul {
   margin: 0;
 }
 
-p {
-  color: #cbd5e1;
-}
-
-button,
-a {
+button, a {
   font: inherit;
 }
 
-img,
-svg {
+img, svg {
   display: block;
 }
 
+/* ─── Scrollbar (Outray-style) ──────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ─── Buttons ───────────────────────────────────────────────────────────────── */
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-medium text-white transition duration-200 hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-white/20;
+  @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300;
+  background: var(--accent);
+  color: #000000;
+  box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.15);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 40px rgba(var(--accent-rgb), 0.3);
+  transform: translateY(-1px);
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-white transition duration-200 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/20;
+  @apply inline-flex items-center justify-center rounded-full border px-6 py-3 text-sm font-semibold text-white transition-all duration-300;
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
 }
 
-.section-card {
-  @apply rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-[0_24px_96px_rgba(0,0,0,0.28)] transition duration-300 ease-out backdrop-blur-3xl;
+.btn-secondary:hover {
+  border-color: rgba(var(--accent-rgb), 0.3);
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.text-muted {
-  color: #94a3b8;
-}
-
+/* ─── Section Heading ───────────────────────────────────────────────────────── */
 .section-heading {
   @apply text-3xl font-semibold tracking-tight text-white sm:text-4xl;
 }
 
 .section-subtitle {
-  @apply mt-4 max-w-3xl text-base leading-8 text-slate-300;
+  @apply mt-4 max-w-3xl text-base leading-8 text-slate-400;
 }
 
+/* ─── Glass Card ────────────────────────────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.25rem;
+  transition: all 0.35s cubic-bezier(0.21, 0.47, 0.32, 0.98);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ─── Section Card (legacy support) ─────────────────────────────────────────── */
+.section-card {
+  @apply glass-card;
+}
+
+/* ─── Code Panel ────────────────────────────────────────────────────────────── */
 .code-panel {
-  @apply rounded-[2rem] border border-white/10 bg-slate-950/90 p-6 shadow-[0_40px_120px_rgba(0,0,0,0.35)] backdrop-blur-3xl;
+  @apply rounded-2xl border border-white/[0.06] bg-[#0a0a0a] p-6;
 }
 
 .code-panel pre {
@@ -93,11 +136,91 @@ svg {
 }
 
 .code-label {
-  @apply text-sm uppercase tracking-[0.3em] text-slate-400;
+  @apply text-xs uppercase tracking-[0.3em] text-slate-500;
 }
 
+/* ─── Text Gradient ─────────────────────────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, rgba(var(--accent-rgb), 0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Gradient Border Line ──────────────────────────────────────────────────── */
+.gradient-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), 0.15), transparent);
+}
+
+/* ─── Section Divider ───────────────────────────────────────────────────────── */
+.section-divider {
+  @apply relative py-20 sm:py-24;
+}
+
+.section-divider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), 0.1), transparent);
+}
+
+/* ─── Text Muted ────────────────────────────────────────────────────────────── */
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* ─── Animations ────────────────────────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-25px, 25px) scale(0.95); }
+  66% { transform: translate(35px, -15px) scale(1.05); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, -20px) scale(1.02); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ─── Utilities ─────────────────────────────────────────────────────────────── */
 @layer utilities {
   .shadow-glow {
-    box-shadow: 0 32px 120px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 30px rgba(var(--accent-rgb), 0.1);
+  }
+
+  .shadow-glow-lg {
+    box-shadow: 0 0 60px rgba(var(--accent-rgb), 0.15);
+  }
+
+  .animate-float {
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float-delayed 25s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 30s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
   }
 }
