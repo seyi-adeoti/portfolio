@@ -29,7 +29,7 @@ export const experience = [
     company: 'Sterling Bank',
     role: 'Senior Frontend Engineer',
     location: 'Lagos, Nigeria',
-    period: '2022 – Present', // TODO: Verify exact start date
+    period: '2023 – Present', 
     teamSize: 'Leading frontend team',
     title: 'Banking Platform & Branch Operations',
     subtitle:
@@ -47,7 +47,7 @@ export const experience = [
     company: 'Trip Value',
     role: 'Engineering Team Lead',
     location: 'Lagos, Nigeria',
-    period: '2021 – 2022', // TODO: Verify exact dates
+    period: '2021 – 2023',
     teamSize: 'Led engineering team',
     title: 'Logistics & Operations Platform',
     subtitle:
@@ -83,7 +83,7 @@ export const experience = [
     company: 'ComplyDesk',
     role: 'Backend Developer',
     location: 'Lagos, Nigeria',
-    period: '2019 – 2020', // TODO: Verify exact dates
+    period: '2024 – 2026',
     teamSize: 'Engineering team',
     title: 'Tax Computation Engine & Government API Integration',
     subtitle:
@@ -144,5 +144,5 @@ export const projects = [
 export const contactLinks = [
   { label: 'Email', value: 'oluwaseyiadeoti825@gmail.com', href: 'mailto:oluwaseyiadeoti825@gmail.com', icon: 'Mail' },
   { label: 'GitHub', value: 'github.com/seyi-adeoti', href: 'https://github.com/seyi-adeoti', icon: 'Github' },
-  { label: 'LinkedIn', value: 'linkedin.com/in/seyi-adeoti', href: 'https://linkedin.com/in/seyi-adeoti', icon: 'Linkedin' },
+  // { label: 'LinkedIn', value: 'linkedin.com/in/seyi-adeoti', href: 'https://linkedin.com/in/seyi-adeoti', icon: 'Linkedin' },
 ];
