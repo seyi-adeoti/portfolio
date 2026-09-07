@@ -43,24 +43,7 @@ export const experience = [
     technologies: ['React.js', 'Next.js', 'TypeScript', 'Zustand', 'Tailwind CSS', 'Docker'],
     icon: Building2,
   },
-  {
-    company: 'ComplyDesk',
-    role: 'Backend Developer',
-    location: 'Lagos, Nigeria',
-    period: '[Insert Month/Year] – Present (Part-Time / Side Project)',
-    teamSize: 'Engineering team',
-    title: 'Tax Computation Engine & Government API Integration',
-    subtitle:
-      'Built multi-tenant compliance platform automating tax filing for accountants, individuals, and regulators.',
-    problem:
-      'ComplyDesk needed a backend engine to accurately process multi-tier income brackets, statutory reliefs, and deductions — then file directly with the national tax authority API, with zero tolerance for calculation errors and full audit traceability.',
-    architecture:
-      'Multi-tenant Spring Boot service with role-scoped access for accountants, end users, and admin. Government API integration behind an adapter layer with retry logic, reconciliation workflows, and idempotent submission tracking.',
-    impact:
-      'Eliminated manual reconciliation cycles between internal ledgers and government data sources. Compliance defect rate dropped significantly. Platform passed regulatory inspection readiness checks on first review.',
-    technologies: ['Java 11', 'Spring Boot', 'PostgreSQL', 'REST APIs', 'Docker'],
-    icon: FileText,
-  },
+
   {
     company: 'Tripvalue',
     role: 'Engineering Team Lead',
