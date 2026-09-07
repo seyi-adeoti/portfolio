@@ -122,6 +122,34 @@ export const experience = [
 
 export const additionalExperience: { company: string; role: string; period: string; description: string; }[] = [];
 
+// ─── SKILLS & CORE COMPETENCIES ────────────────────────────────────────────────
+export const skills = [
+  {
+    category: 'Frontend',
+    items: ['React.js', 'Next.js', 'TypeScript', 'JavaScript (ES6+)', 'Angular', 'HTML5/CSS3', 'SASS/SCSS', 'Tailwind CSS', 'Styled Components'],
+  },
+  {
+    category: 'Backend & Systems',
+    items: ['Node.js', 'Spring Boot (Java 17)', 'REST APIs', 'Apache Kafka', 'WebSockets', 'Microservices', 'System Design', 'Distributed Systems'],
+  },
+  {
+    category: 'State Management',
+    items: ['Redux Toolkit', 'Zustand', 'MobX', 'TanStack Query', 'Context API'],
+  },
+  {
+    category: 'Databases',
+    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'SQL'],
+  },
+  {
+    category: 'DevOps & Cloud',
+    items: ['Docker', 'Kubernetes', 'AWS (EKS, EC2, RDS)', 'Azure', 'GitHub Actions', 'Jenkins', 'CI/CD Pipelines'],
+  },
+  {
+    category: 'Security & Compliance',
+    items: ['OWASP Top 10', 'JWT', 'OAuth2', 'XSS/CSRF Protection', 'KYC/AML', 'CBN Compliance'],
+  },
+];
+
 // ─── PROJECTS (Side Projects — Honest Framing) ────────────────────────────────
 // These are personal/side projects, clearly labeled as such.
 
@@ -134,6 +162,8 @@ export const projects = [
     highlights: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Redis', 'Apache Kafka', 'Docker'],
     href: null,
     github: 'https://github.com/wallet-system',
+    apiDocs: '#',
+    architecture: '#',
     live: false,
   },
   {
@@ -144,6 +174,8 @@ export const projects = [
     highlights: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Apache Kafka', 'Kubernetes'],
     href: null,
     github: 'https://github.com/seyi-adeoti/distributed-payment-system',
+    apiDocs: '#',
+    architecture: '#',
     live: false,
   },
   {
@@ -154,6 +186,8 @@ export const projects = [
     highlights: ['React', 'TypeScript', 'Next.js', 'WebSockets', 'Responsive Design'],
     href: 'https://lekture-fe.vercel.app/',
     github: 'https://github.com/seyi-adeoti/lekture',
+    apiDocs: null,
+    architecture: null,
     live: true,
   },
 ];
