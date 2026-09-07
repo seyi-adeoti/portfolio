@@ -26,64 +26,28 @@ export const navItems = [
 
 export const experience = [
   {
-    company: 'Sterling Bank',
+    company: 'Sterling Bank Plc / Altbank',
     role: 'Senior Frontend Engineer',
     location: 'Lagos, Nigeria',
-    period: '2023 – Present', 
+    period: 'Jul 2023 – Present (Full-Time)', 
     teamSize: 'Leading frontend team',
     title: 'Banking Platform & Branch Operations',
     subtitle:
-      'Leading frontend engineering for enterprise banking applications, while contributing to backend services.',
+      'Architected and own the frontend of enterprise banking products serving 100,000+ users, built with React.js, TypeScript, and Next.js.',
     problem:
       'Sterling needed modern, reliable web applications for loan origination, branch account opening, and card management — serving operations across all branches with strict compliance and auditability requirements.',
     architecture:
-      'React-based frontends with component-driven architecture, integrated with Spring Boot backend services. Built loan application platform with intake, inputter handoff, and approval workflows. Delivered account opening channel and card portal system with insurance integration.',
+      'React-based frontends with component-driven architecture, integrated with backend services. Implemented security standards including JWT, OAuth2, and XSS/CSRF protection across financial data surfaces, aligned with OWASP guidance.',
     impact:
-      'Streamlined loan operations and improved approval visibility while preserving compliance controls. Unified account onboarding and card management across all branches, making branch channels more consistent and reliable.',
-    technologies: ['React', 'TypeScript', 'Spring Boot', 'REST APIs', 'Workflow Automation'],
+      'Reduced transaction page load times through code splitting, lazy loading, and bundle optimization. Delivered a loan application workflow with intake, inputter handoff, and multi-level approval, integrated with backend services.',
+    technologies: ['React.js', 'Next.js', 'TypeScript', 'Zustand', 'Tailwind CSS', 'Docker'],
     icon: Building2,
-  },
-  {
-    company: 'Trip Value',
-    role: 'Engineering Team Lead',
-    location: 'Lagos, Nigeria',
-    period: '2021 – 2023',
-    teamSize: 'Led engineering team',
-    title: 'Logistics & Operations Platform',
-    subtitle:
-      'Led the engineering team building real-time logistics tracking and fleet management systems.',
-    problem:
-      'The company needed a resilient platform to monitor shipments, coordinate routes, and provide live updates across distributed operations teams — with reliable performance under high-volume conditions.',
-    architecture:
-      'React dashboard with real-time API layer using WebSockets, microservices backend on Spring Boot, and containerized deployments. Led architecture decisions, code reviews, and delivery execution for the engineering team.',
-    impact:
-      'Enabled 24/7 operational visibility, accelerated task resolution, and reduced route latency by 40% in peak hours. Grew and mentored the engineering team while maintaining delivery velocity.',
-    technologies: ['React', 'TypeScript', 'WebSockets', 'Spring Boot', 'Docker', 'PostgreSQL', 'Redis'],
-    icon: Truck,
-  },
-  {
-    company: 'Contract Role',
-    role: 'Frontend Engineer (Contract)',
-    location: 'Budapest, Hungary (Remote)',
-    period: '2020 – 2021',
-    teamSize: 'Contract engagement',
-    title: 'Logistics Marketplace',
-    subtitle:
-      'Built a fast-launch order-to-rider matching application for a logistics startup.',
-    problem:
-      'A Hungarian logistics startup needed a marketplace application to match orders with verified riders, including driver verification, document submission, and proof-of-address checks — delivered under tight timelines.',
-    architecture:
-      'React-based marketplace with real-time order matching, driver verification workflows, and responsive design for field operations. Integrated with backend APIs for document processing and address verification.',
-    impact:
-      'Delivered a reliable matching flow that connected orders to verified riders. Improved operational trust from first rollout. Demonstrated ability to deliver remotely for an international client.',
-    technologies: ['React', 'TypeScript', 'Real-time APIs', 'Responsive Design'],
-    icon: Truck,
   },
   {
     company: 'ComplyDesk',
     role: 'Backend Developer',
     location: 'Lagos, Nigeria',
-    period: '2024 – 2026',
+    period: '[Insert Month/Year] – Present (Part-Time / Side Project)',
     teamSize: 'Engineering team',
     title: 'Tax Computation Engine & Government API Integration',
     subtitle:
@@ -96,6 +60,78 @@ export const experience = [
       'Eliminated manual reconciliation cycles between internal ledgers and government data sources. Compliance defect rate dropped significantly. Platform passed regulatory inspection readiness checks on first review.',
     technologies: ['Java 11', 'Spring Boot', 'PostgreSQL', 'REST APIs', 'Docker'],
     icon: FileText,
+  },
+  {
+    company: 'Tripvalue',
+    role: 'Engineering Team Lead',
+    location: 'Lagos, Nigeria',
+    period: 'Dec 2021 – Dec 2022 (Full-Time)',
+    teamSize: 'Led a team of 6 engineers',
+    title: 'Logistics Management Platform',
+    subtitle:
+      'Led a cross-functional team of 6 engineers building a full-stack logistics management platform covering real-time tracking, inventory, and route optimization.',
+    problem:
+      'The company needed a resilient platform to monitor shipments, coordinate routes, and provide live updates across distributed operations teams — with reliable performance serving 50,000+ daily requests.',
+    architecture:
+      'Built a real-time fleet tracking dashboard using React, WebSockets, and microservices. Defined technical architecture, service boundaries, and delivery roadmap; ran sprint planning and architecture reviews.',
+    impact:
+      'Reduced route resolution latency by 40% at peak load. Established coding standards, PR review culture, and agile rituals that improved team delivery velocity.',
+    technologies: ['React', 'TypeScript', 'WebSockets', 'Spring Boot', 'REST APIs'],
+    icon: Truck,
+  },
+  {
+    company: 'Aglow Digitals',
+    role: 'Frontend Developer (Part-Time)',
+    location: 'Lagos, Nigeria',
+    period: 'Oct 2021 – Dec 2022 (Part-Time)',
+    teamSize: 'Frontend Engineering',
+    title: 'Website Performance & Conversion Optimization',
+    subtitle:
+      'Improved website performance through React optimization, modern build tooling, and asset delivery improvements, alongside a full-time engineering role.',
+    problem:
+      'The company needed responsive interfaces across devices and better website performance to improve user experience and conversion rates.',
+    architecture:
+      'Built responsive interfaces and implemented A/B testing infrastructure enabling data-driven decisions across marketing and product teams.',
+    impact:
+      'Contributed to improved UX and conversion rates by enhancing website performance and cross-device responsiveness.',
+    technologies: ['React.js', 'TypeScript', 'Webpack', 'Sass'],
+    icon: Sparkles,
+  },
+  {
+    company: 'Aid Me',
+    role: 'Frontend Developer',
+    location: 'Lagos, Nigeria',
+    period: 'Feb 2020 – Nov 2021 (Full-Time)',
+    teamSize: 'Frontend team',
+    title: 'Component Library & Multi-module Applications',
+    subtitle:
+      'Built and maintained a reusable component library with Storybook documentation, cutting development time across 4+ product teams.',
+    problem:
+      'The organization required a unified frontend architecture for complex multi-module applications, handling concurrent user state and integration with numerous third-party APIs while maintaining accessibility standards.',
+    architecture:
+      'Implemented frontend architecture handling concurrent user state with Redux and Context API. Integrated 15+ third-party APIs including payment processors, analytics platforms, and notification services, with error handling and retry logic.',
+    impact:
+      'Improved WCAG 2.1 AA accessibility scores across products, reducing audit risk and broadening user reach. Improved rendering performance through virtual DOM optimization and memoization strategies.',
+    technologies: ['React.js', 'Redux', 'TypeScript', 'REST APIs', 'Jest', 'Storybook', 'HTML5/CSS3'],
+    icon: Layers,
+  },
+  {
+    company: 'Remote client',
+    role: 'Frontend Engineer (Contract)',
+    location: 'Budapest, Hungary (Remote)',
+    period: 'Jan 2020 – Apr 2020 (Contract)',
+    teamSize: 'Contract engagement',
+    title: 'Logistics Marketplace',
+    subtitle:
+      'Built a fast-launch order-to-rider matching application for a logistics startup, including driver verification and document submission workflows.',
+    problem:
+      'A Hungarian logistics startup needed a marketplace application to match orders with verified riders, including driver verification, document submission, and proof-of-address checks — delivered under tight timelines.',
+    architecture:
+      'Delivered a real-time order-matching flow with responsive design for field operations, integrated with backend APIs for document and address verification.',
+    impact:
+      'Delivered a reliable matching flow that connected orders to verified riders. Improved operational trust from first rollout.',
+    technologies: ['React.js', 'TypeScript', 'Real-time APIs', 'Responsive Design'],
+    icon: Truck,
   },
 ];
 
