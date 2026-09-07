@@ -14,6 +14,7 @@ import {
   heroBadges,
   heroLocation,
   heroVisaStatus,
+  skills,
   experience,
   projects,
   contactLinks,
@@ -107,6 +108,41 @@ export default function Home() {
 
           {/* Bottom gradient fade */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent" />
+        </section>
+
+        {/* ───────────────────── SKILLS ───────────────────── */}
+        <section id="skills" className="section-divider relative">
+          <SectionGlow position="right" />
+          <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8">
+            <ScrollReveal>
+              <SectionHeading>Core Competencies</SectionHeading>
+              <p className="section-subtitle">
+                A comprehensive breakdown of my technical stack and systems expertise.
+              </p>
+            </ScrollReveal>
+
+            <StaggerContainer className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {skills.map((skillGroup) => (
+                <StaggerItem key={skillGroup.category}>
+                  <Card className="h-full p-6">
+                    <h3 className="text-sm font-semibold uppercase tracking-[0.1em] text-white mb-4">
+                      {skillGroup.category}
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {skillGroup.items.map((item) => (
+                        <span
+                          key={item}
+                          className="rounded-md border border-white/[0.08] bg-white/[0.02] px-2.5 py-1 text-xs text-slate-300"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </Card>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
         </section>
 
         {/* ───────────────────── EXPERIENCE ───────────────────── */}
@@ -218,7 +254,7 @@ export default function Home() {
                       ))}
                     </div>
 
-                    <div className="mt-4 flex gap-2">
+                    <div className="mt-4 flex gap-3 flex-wrap">
                       {project.live && project.href && (
                         <a
                           href={project.href}
@@ -237,6 +273,26 @@ export default function Home() {
                           className="flex items-center gap-1 text-xs font-semibold text-slate-400 transition hover:text-white"
                         >
                           GitHub <ArrowUpRight className="h-3 w-3" />
+                        </a>
+                      )}
+                      {'apiDocs' in project && project.apiDocs && (
+                        <a
+                          href={project.apiDocs}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1 text-xs font-semibold text-sky-400 transition hover:text-sky-300"
+                        >
+                          API Docs <ArrowUpRight className="h-3 w-3" />
+                        </a>
+                      )}
+                      {'architecture' in project && project.architecture && (
+                        <a
+                          href={project.architecture}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1 text-xs font-semibold text-purple-400 transition hover:text-purple-300"
+                        >
+                          Architecture <ArrowUpRight className="h-3 w-3" />
                         </a>
                       )}
                     </div>
