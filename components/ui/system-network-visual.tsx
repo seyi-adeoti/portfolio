@@ -1,121 +1,133 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Layout, Shield, Server, Cpu, Database, Activity } from 'lucide-react';
+import { useState } from 'react';
+import { Layout, Shield, Server, Cpu, Database, Check } from 'lucide-react';
 
-const nodes = [
-  { id: 'fe', label: 'Frontend UI', tech: 'React / Next.js', icon: Layout },
-  { id: 'gw', label: 'API Gateway', tech: 'OAuth2 / Rate Limit', icon: Shield },
-  { id: 'srv', label: 'Microservices', tech: 'Java 17 / Spring Boot', icon: Server },
-  { id: 'kafka', label: 'Event Stream', tech: 'Apache Kafka', icon: Cpu },
-  { id: 'db', label: 'Data & Cache', tech: 'PostgreSQL / Redis', icon: Database },
+const stackLayers = [
+  {
+    id: 'client',
+    title: 'Client Layer',
+    tech: 'React.js / Next.js / Angular / TypeScript',
+    icon: Layout,
+    details: 'Component-driven frontend architecture, normalized Zustand state, WCAG 2.1 accessibility, sub-second bundle splitting.',
+  },
+  {
+    id: 'gateway',
+    title: 'API Gateway',
+    tech: 'OAuth2 / JWT / Rate Limiting',
+    icon: Shield,
+    details: 'Bank-grade security perimeter, request validation, OWASP XSS/CSRF mitigations, token rotation.',
+  },
+  {
+    id: 'backend',
+    title: 'Backend Microservices',
+    tech: 'Java 17 / Spring Boot',
+    icon: Server,
+    details: 'Domain-driven microservices processing financial logic, transactional accounting, idempotency controls.',
+  },
+  {
+    id: 'streaming',
+    title: 'Event Streaming',
+    tech: 'Apache Kafka / WebSockets',
+    icon: Cpu,
+    details: 'Asynchronous event bus, topic partitioning, high-throughput event sourcing, real-time telemetry streaming.',
+  },
+  {
+    id: 'data',
+    title: 'Data & Cache Engine',
+    tech: 'PostgreSQL / Redis',
+    icon: Database,
+    details: 'ACID-compliant relational transactions, immutable audit logs, low-latency Redis balance and session caching.',
+  },
 ];
 
 export function SystemNetworkVisual() {
-  const [activeNode, setActiveNode] = useState(0);
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-    const interval = setInterval(() => {
-      setActiveNode((prev) => (prev + 1) % nodes.length);
-    }, 2400);
-    return () => clearInterval(interval);
-  }, []);
+  const [selectedLayer, setSelectedLayer] = useState(0);
 
   return (
-    <div className="relative w-full rounded-2xl border border-border bg-gradient-to-b from-white to-surface p-6 shadow-card transition-all hover:shadow-card-hover">
+    <div className="w-full rounded-sm border border-[#D8D3C8] bg-[#FAF8F5] p-5 sm:p-6 shadow-ledger">
       {/* Top Header Bar */}
-      <div className="flex items-center justify-between border-b border-border pb-4 mb-6">
-        <div className="flex items-center gap-2">
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-orange-light text-orange-primary">
-            <Activity className="h-4 w-4 animate-pulse" />
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#D8D3C8] pb-4 mb-5">
+        <div>
+          <div className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-[#B8860B]" />
+            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-[#1A2332]">
+              Financial System Architecture
+            </h3>
           </div>
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-charcoal">System Architecture Flow</h3>
-            <p className="text-[0.7rem] text-slate-500">Live distributed telemetry simulator</p>
-          </div>
+          <p className="font-serif text-xs text-[#5A6678] italic mt-0.5">
+            Layered Cross-Section & Transaction Flow
+          </p>
         </div>
 
-        <div className="flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[0.68rem] font-semibold text-emerald-700">
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping" />
-          System Healthy
+        <div className="rounded-sm border border-[#B8860B]/30 bg-[#F4EFE0] px-2.5 py-1 font-mono text-[0.75rem] font-semibold text-[#8C6608]">
+          REFERENCE ARCHITECTURE
         </div>
       </div>
 
-      {/* Interactive Architecture Flow Diagram */}
-      <div className="relative min-h-[200px] w-full py-2">
-        {/* SVG Connection Lines */}
-        <svg className="absolute inset-0 h-full w-full pointer-events-none stroke-slate-200" style={{ overflow: 'visible' }}>
-          <defs>
-            <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#FF6B00" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#FF6B00" stopOpacity="0.2" />
-            </linearGradient>
-          </defs>
+      {/* Labeled Stack Diagram (Layered Cross-Section) — NO 01-06 NUMBERING */}
+      <div className="space-y-2">
+        {stackLayers.map((layer, index) => {
+          const Icon = layer.icon;
+          const isSelected = selectedLayer === index;
 
-          {/* Connectors */}
-          <path d="M 10% 50% L 30% 50% L 50% 50% L 70% 50% L 90% 50%" strokeWidth="2" strokeDasharray="4 4" fill="none" />
-
-          {/* Active Pulsing Flow Lines */}
-          {isClient && (
-            <path
-              d="M 10% 50% L 90% 50%"
-              stroke="url(#orangeGradient)"
-              strokeWidth="3"
-              fill="none"
-              className="animate-data-flow"
-              strokeDasharray="8 8"
-            />
-          )}
-        </svg>
-
-        {/* Nodes Grid */}
-        <div className="relative z-10 grid grid-cols-2 gap-3 sm:grid-cols-5">
-          {nodes.map((node, index) => {
-            const Icon = node.icon;
-            const isActive = activeNode === index;
-            return (
-              <div
-                key={node.id}
-                onClick={() => setActiveNode(index)}
-                className={`group cursor-pointer rounded-xl border p-3.5 transition-all duration-300 ${
-                  isActive
-                    ? 'border-orange-primary bg-orange-light shadow-orange-soft transform -translate-y-1'
-                    : 'border-border bg-white hover:border-orange-border hover:bg-slate-50'
-                }`}
-              >
-                <div className="flex items-center justify-between mb-2">
+          return (
+            <div
+              key={layer.id}
+              onClick={() => setSelectedLayer(index)}
+              className={`group cursor-pointer rounded-sm border p-3.5 transition-all duration-150 ${
+                isSelected
+                  ? 'border-[#B8860B] bg-[#F4EFE0]'
+                  : 'border-[#D8D3C8] bg-white hover:border-[#B8860B]/60 hover:bg-[#F7F5F0]'
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
                   <div
-                    className={`flex h-8 w-8 items-center justify-center rounded-lg transition-colors ${
-                      isActive ? 'bg-orange-primary text-white' : 'bg-slate-100 text-slate-600 group-hover:text-orange-primary'
+                    className={`flex h-7 w-7 items-center justify-center rounded-sm transition-colors ${
+                      isSelected ? 'bg-[#8C6608] text-white' : 'bg-[#EFECE6] text-[#1A2332] group-hover:text-[#8C6608]'
                     }`}
                   >
-                    <Icon className="h-4 w-4" />
+                    <Icon className="h-3.5 w-3.5" />
                   </div>
-                  <span className="text-[0.65rem] font-mono text-slate-400">0{index + 1}</span>
+
+                  <div>
+                    <h4 className="font-serif text-sm font-bold text-[#1A2332]">
+                      {layer.title}
+                    </h4>
+                    <p className="font-mono text-[0.75rem] text-[#5A6678]">
+                      {layer.tech}
+                    </p>
+                  </div>
                 </div>
 
-                <h4 className={`text-xs font-bold transition-colors ${isActive ? 'text-charcoal' : 'text-slate-800'}`}>
-                  {node.label}
-                </h4>
-                <p className="mt-0.5 text-[0.65rem] font-medium text-slate-500 line-clamp-1">{node.tech}</p>
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-[0.75rem] text-[#5A6678] uppercase tracking-wider hidden sm:inline">
+                    {layer.id.toUpperCase()}
+                  </span>
+                  {isSelected && <Check className="h-4 w-4 text-[#8C6608]" />}
+                </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
 
-      {/* Active Node Detail Card */}
-      <div className="mt-4 rounded-xl border border-orange-border bg-orange-light/60 p-3.5 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="h-2 w-2 rounded-full bg-orange-primary animate-pulse" />
-          <span className="text-xs font-semibold text-charcoal">
-            Active Layer: <strong className="text-orange-primary">{nodes[activeNode].label}</strong> ({nodes[activeNode].tech})
+      {/* Selected Layer Cross-Section Inspection Box */}
+      <div className="mt-4 rounded-sm border border-[#D8D3C8] bg-white p-3.5">
+        <div className="flex items-center justify-between border-b border-[#E2DDD3] pb-2 mb-2">
+          <span className="font-mono text-[0.75rem] font-bold uppercase tracking-wider text-[#8C6608]">
+            Layer Inspection: {stackLayers[selectedLayer].title}
+          </span>
+          <span className="font-mono text-[0.75rem] text-[#5A6678]">
+            {stackLayers[selectedLayer].tech}
           </span>
         </div>
-        <span className="text-[0.68rem] font-mono text-slate-500 hidden sm:inline">Event-driven telemetry</span>
+        <p className="text-xs leading-5 text-[#4A5568]">
+          {stackLayers[selectedLayer].details}
+        </p>
       </div>
     </div>
   );
 }
+

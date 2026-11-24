@@ -11,7 +11,7 @@ import { Footer } from '../components/ui/footer';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-charcoal font-sans selection:bg-orange-light selection:text-charcoal">
+    <div className="min-h-screen bg-[#F7F5F0] text-[#1A2332] font-sans selection:bg-[#B8860B]/20 selection:text-[#1A2332]">
       <Navbar />
       <main className="relative">
         <HeroSection />
@@ -27,4 +27,5 @@ export default function Home() {
     </div>
   );
 }
+
 

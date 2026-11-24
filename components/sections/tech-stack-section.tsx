@@ -1,103 +1,97 @@
 'use client';
 
 import { useState } from 'react';
-import { Cpu, Info } from 'lucide-react';
+import { Info } from 'lucide-react';
 import { techStackCategories } from '../../lib/data';
-import { ScrollReveal, StaggerContainer, StaggerItem } from '../ui/scroll-reveal';
 
 export function TechStackSection() {
   const [activeItem, setActiveItem] = useState<{ name: string; usage: string } | null>(null);
 
   return (
-    <section id="skills" className="section-divider relative bg-surface">
+    <section id="skills" className="section-divider bg-[#F7F5F0]">
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
-        <ScrollReveal>
-          <div className="flex flex-col items-start gap-2">
-            <span className="section-label">
-              <Cpu className="h-3.5 w-3.5" />
-              Technical Stack & Domain Expertise
-            </span>
-            <h2 className="section-heading mt-2">
-              Categorized Engineering Capabilities
-            </h2>
-            <p className="section-subtitle">
-              Hover over any technology item to see how I apply it across frontend platforms, microservices, messaging, and cloud deployments.
-            </p>
-          </div>
-        </ScrollReveal>
+        {/* Section Heading (NO tracked-out eyebrow labels!) */}
+        <div className="flex flex-col items-start">
+          <h2 className="section-heading">
+            Technical Stack & Domain Expertise
+          </h2>
+          <p className="section-subtitle">
+            Select or hover over any technology item to review production application context across frontend platforms, microservices, messaging, and cloud deployments.
+          </p>
+        </div>
 
-        {/* Categories Grid */}
-        <StaggerContainer className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* Categories Grid (Document-Dense Ledger Index) */}
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {techStackCategories.map((group) => (
-            <StaggerItem key={group.category}>
-              <div className="premium-card p-6 h-full flex flex-col justify-between hover:border-orange-border">
-                <div>
-                  <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
-                    <h3 className="text-base font-bold text-charcoal">{group.category}</h3>
-                    <span className="text-[0.68rem] font-mono text-slate-400">{group.items.length} Techs</span>
-                  </div>
-                  <p className="text-xs text-slate-500 mb-4">{group.description}</p>
+            <div
+              key={group.category}
+              className="rounded-sm border border-[#D8D3C8] bg-[#FAF8F5] p-6 flex flex-col justify-between shadow-ledger"
+            >
+              <div>
+                <div className="flex items-center justify-between border-b border-[#D8D3C8] pb-3 mb-3">
+                  <h3 className="font-serif text-base font-bold text-[#1A2332]">{group.category}</h3>
+                  <span className="font-mono text-[0.75rem] text-[#5A6678]">{group.items.length} Techs</span>
+                </div>
+                <p className="text-xs text-[#4A5568] mb-4">{group.description}</p>
 
-                  <div className="flex flex-wrap gap-2">
-                    {group.items.map((item) => {
-                      const isSelected = activeItem?.name === item.name;
-                      return (
-                        <div
-                          key={item.name}
-                          onMouseEnter={() => setActiveItem(item)}
-                          onMouseLeave={() => setActiveItem(null)}
-                          onClick={() => setActiveItem(isSelected ? null : item)}
-                          className={`cursor-pointer rounded-lg border px-3 py-1.5 text-xs font-semibold transition-all duration-200 ${
-                            isSelected
-                              ? 'border-orange-primary bg-orange-primary text-white shadow-orange'
-                              : 'border-border bg-white text-slate-700 hover:border-orange-border hover:bg-orange-light hover:text-orange-primary'
-                          }`}
-                        >
-                          {item.name}
-                        </div>
-                      );
-                    })}
-                  </div>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((item) => {
+                    const isSelected = activeItem?.name === item.name;
+                    return (
+                      <button
+                        key={item.name}
+                        onMouseEnter={() => setActiveItem(item)}
+                        onMouseLeave={() => setActiveItem(null)}
+                        onClick={() => setActiveItem(isSelected ? null : item)}
+                        className={`cursor-pointer rounded-sm border px-2.5 py-1 font-mono text-xs transition-all duration-150 ${
+                          isSelected
+                            ? 'border-[#8C6608] bg-[#8C6608] text-[#FAF8F5] font-bold'
+                            : 'border-[#D8D3C8] bg-white text-[#1A2332] hover:border-[#B8860B] hover:bg-[#F4EFE0]'
+                        }`}
+                      >
+                        {item.name}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-
-        {/* Hover Context Box */}
-        <ScrollReveal delay={0.3}>
-          <div className="mt-8 rounded-xl border border-orange-border bg-white p-5 shadow-subtle min-h-[72px] flex items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-light text-orange-primary flex-shrink-0">
-                <Info className="h-4 w-4" />
-              </div>
-              <div>
-                {activeItem ? (
-                  <>
-                    <h4 className="text-xs font-bold text-charcoal">
-                      How I use <span className="text-orange-primary">{activeItem.name}</span> in production:
-                    </h4>
-                    <p className="text-xs text-slate-600 mt-0.5">{activeItem.usage}</p>
-                  </>
-                ) : (
-                  <>
-                    <h4 className="text-xs font-bold text-charcoal">Hover over a technology tag above</h4>
-                    <p className="text-xs text-slate-500 mt-0.5">
-                      Explore detailed production usage context for each skill in my technical stack.
-                    </p>
-                  </>
-                )}
-              </div>
             </div>
+          ))}
+        </div>
 
-            {activeItem && (
-              <span className="hidden sm:inline-block rounded-full bg-orange-light px-3 py-1 text-[0.68rem] font-bold text-orange-primary">
-                Active Tech Context
-              </span>
-            )}
+        {/* Technical Context Inspection Drawer */}
+        <div className="mt-8 rounded-sm border border-[#D8D3C8] bg-white p-5 shadow-sm min-h-[72px] flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-[#F4EFE0] text-[#8C6608] flex-shrink-0">
+              <Info className="h-4 w-4" />
+            </div>
+            <div>
+              {activeItem ? (
+                <>
+                  <h4 className="font-mono text-xs font-bold text-[#1A2332]">
+                    Production Usage context for <span className="text-[#8C6608]">{activeItem.name}</span>:
+                  </h4>
+                  <p className="text-xs text-[#4A5568] mt-0.5">{activeItem.usage}</p>
+                </>
+              ) : (
+                <>
+                  <h4 className="font-mono text-xs font-bold text-[#1A2332]">Select or hover over a skill tag above</h4>
+                  <p className="text-xs text-[#5A6678] mt-0.5">
+                    Review specific production usage details for technologies across Seyi&apos;s stack.
+                  </p>
+                </>
+              )}
+            </div>
           </div>
-        </ScrollReveal>
+
+          {activeItem && (
+            <span className="hidden sm:inline-block rounded-sm bg-[#F4EFE0] border border-[#B8860B]/40 px-2.5 py-1 font-mono text-[0.75rem] font-bold uppercase text-[#8C6608]">
+              Active Skill Record
+            </span>
+          )}
+        </div>
       </div>
     </section>
   );
 }
+

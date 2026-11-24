@@ -6,8 +6,8 @@ export const heroData = {
   name: 'Seyi Adeoti',
   headline: 'Senior Full-Stack Engineer building scalable digital products and financial systems.',
   subtitle:
-    'Senior Full-Stack & Frontend Engineer with 6+ years of experience building high-performance web applications, resilient backend microservices, and distributed financial platforms using React, Next.js, TypeScript, Java/Spring Boot, Kafka, and AWS.',
-  badges: ['React.js', 'Next.js', 'TypeScript', 'Java 17', 'Spring Boot', 'Kafka', 'AWS', 'PostgreSQL', 'Docker'],
+    'Senior Full-Stack Engineer with 6+ years of experience building high-performance web applications, resilient backend microservices, and distributed financial platforms using React, Next.js, Angular, TypeScript, Java/Spring Boot, Kafka, and AWS.',
+  badges: ['React.js', 'Next.js', 'Angular', 'TypeScript', 'Java 17', 'Spring Boot', 'Kafka', 'AWS', 'PostgreSQL', 'Docker'],
   location: 'Lagos, Nigeria (WAT / GMT+1)',
   visaStatus: 'Passport holder · Open to visa sponsorship & global relocation / remote',
 };
@@ -179,7 +179,7 @@ export const fintechHighlights = [
   {
     title: 'Event-Driven Financial Workflows',
     description:
-      'Architected event-driven microservices using Java 17, Spring Boot, and Apache Kafka for asynchronous ledger processing and payment orchestration.',
+      'Architected event-driven microservices using Java 17, Spring Boot, and Apache Kafka for asynchronous payment processing and orchestration.',
     icon: Wallet,
   },
 ];
@@ -193,6 +193,7 @@ export const techStackCategories = [
     items: [
       { name: 'React.js', usage: '6+ years building complex interactive dashboards and component systems.' },
       { name: 'Next.js', usage: 'SSG/SSR web apps with server components, route handlers, and SEO optimization.' },
+      { name: 'Angular', usage: 'Structured enterprise SPAs with TypeScript, RxJS, reusable modules, and dependency injection.' },
       { name: 'TypeScript', usage: 'Strict type safety across frontend components and backend API interfaces.' },
       { name: 'JavaScript (ES6+)', usage: 'Deep knowledge of async event loops, DOM APIs, and modern JS features.' },
       { name: 'Tailwind CSS', usage: 'Designing scalable design systems with custom tokens and light/dark styling.' },
@@ -296,7 +297,7 @@ export const architectureSteps = [
   {
     step: '01',
     title: 'Client Layer',
-    tech: 'React.js / Next.js / TypeScript',
+    tech: 'React.js / Next.js / Angular / TypeScript',
     description: 'Component-driven, responsive UI with normalized state management, strict type boundaries, and accessibility.',
   },
   {

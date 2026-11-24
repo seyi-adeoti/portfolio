@@ -2,35 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Design Tokens (White + Orange + Charcoal) ───────────────────────────── */
+/* ─── Financial / Ledger Document Tokens ──────────────────────────────────── */
 :root {
   color-scheme: light;
-  --bg-primary: #ffffff;
-  --bg-secondary: #fafafa;
-  --bg-tertiary: #f4f5f6;
-  --accent: #ff6b00;
-  --accent-hover: #e56000;
-  --accent-soft: #fff1e6;
-  --accent-rgb: 255, 107, 0;
-  --border: #eaeaea;
-  --border-strong: #e2e8f0;
-  --text-primary: #111111;
-  --text-secondary: #555555;
-  --text-muted: #888888;
+  --bg-paper: #F7F5F0;
+  --bg-card: #FAF8F5;
+  --bg-subtle: #EFECE6;
+  --border-line: #D8D3C8;
+  --border-hairline: #E2DDD3;
+  --text-ink: #1A2332;
+  --text-muted: #4A5568;
+  --text-subtle: #5A6678;
+  --accent-brass: #B8860B;
+  --accent-brass-light: #F4EFE0;
 }
 
 html {
   min-height: 100%;
   scroll-behavior: smooth;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  background-color: var(--bg-paper);
+  color: var(--text-ink);
 }
 
 body {
   min-height: 100vh;
   margin: 0;
-  background: var(--bg-primary);
-  color: var(--text-primary);
+  background: var(--bg-paper);
+  color: var(--text-ink);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -42,8 +40,8 @@ body {
 
 /* ─── Selection ─────────────────────────────────────────────────────────────── */
 ::selection {
-  background: rgba(var(--accent-rgb), 0.15);
-  color: #111111;
+  background: rgba(184, 134, 11, 0.18);
+  color: #1A2332;
 }
 
 /* ─── Resets ────────────────────────────────────────────────────────────────── */
@@ -61,101 +59,102 @@ img, svg {
 
 /* ─── Scrollbar ────────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #fafafa;
+  background: #F7F5F0;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
+  background: #D8D3C8;
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #B8860B;
 }
 
-/* ─── Buttons ───────────────────────────────────────────────────────────────── */
+/* ─── Document / Ledger Hairline Section Divider ────────────────────────────── */
+.section-divider {
+  position: relative;
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+  border-bottom: 1px solid var(--border-line);
+}
+
+@media (min-width: 640px) {
+  .section-divider {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* ─── Buttons (No Arrow Glyphs, Clean Paper/Ink Style) ─────────────────────── */
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-200;
-  background: var(--accent);
-  color: #ffffff;
-  box-shadow: 0 4px 14px rgba(var(--accent-rgb), 0.25);
+  @apply inline-flex items-center justify-center rounded-sm px-5 py-2.5 text-xs font-mono font-semibold uppercase tracking-wider transition-all duration-150;
+  background: var(--text-ink);
+  color: #F7F5F0;
+  border: 1px solid var(--text-ink);
 }
 
 .btn-primary:hover {
-  background: var(--accent-hover);
-  box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.35);
-  transform: translateY(-1px);
+  background: #2A3649;
+  border-color: #2A3649;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-lg border px-6 py-3 text-sm font-semibold transition-all duration-200;
-  border-color: var(--border-strong);
-  background: #ffffff;
-  color: #111111;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  @apply inline-flex items-center justify-center rounded-sm border px-5 py-2.5 text-xs font-mono font-semibold uppercase tracking-wider transition-all duration-150;
+  border-color: var(--border-line);
+  background: var(--bg-card);
+  color: var(--text-ink);
 }
 
 .btn-secondary:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-soft);
-  transform: translateY(-1px);
+  border-color: var(--accent-brass);
+  color: #8C6608;
+  background: var(--accent-brass-light);
 }
 
-/* ─── Section Heading ───────────────────────────────────────────────────────── */
+.btn-brass {
+  @apply inline-flex items-center justify-center rounded-sm border px-5 py-2.5 text-xs font-mono font-semibold uppercase tracking-wider transition-all duration-150;
+  border-color: var(--accent-brass);
+  background: var(--accent-brass-light);
+  color: #8C6608;
+}
+
+.btn-brass:hover {
+  background: #8C6608;
+  color: #FAF8F5;
+}
+
+/* ─── Section Headings (Document Serif) ────────────────────────────────────── */
 .section-heading {
-  @apply text-3xl font-bold tracking-tight text-charcoal sm:text-4xl;
+  @apply text-2xl font-serif tracking-tight text-[#1A2332] sm:text-3xl md:text-4xl;
 }
 
 .section-subtitle {
-  @apply mt-3 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg;
+  @apply mt-2.5 max-w-3xl text-sm leading-6 text-[#4A5568] sm:text-base;
 }
 
-.section-label {
-  @apply inline-flex items-center gap-2 rounded-full border border-orange-border bg-orange-light px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-orange-primary;
+/* ─── Hairline Ledger Card ─────────────────────────────────────────────────── */
+.ledger-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-line);
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(26, 35, 50, 0.02);
+  transition: border-color 0.15s ease;
 }
 
-/* ─── Cards ─────────────────────────────────────────────────────────────────── */
-.premium-card {
-  background: #ffffff;
-  border: 1px solid #eaeaea;
-  border-radius: 1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+.ledger-card:hover {
+  border-color: #B8860B;
 }
 
-.premium-card:hover {
-  border-color: #ffd6b8;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(255, 107, 0, 0.06);
-  transform: translateY(-2px);
-}
-
-/* ─── Section Divider ───────────────────────────────────────────────────────── */
-.section-divider {
-  @apply relative py-20 sm:py-28;
-  border-bottom: 1px solid var(--border);
-}
-
-/* ─── Timeline Line ─────────────────────────────────────────────────────────── */
-.timeline-line {
-  position: absolute;
-  left: 20px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(180deg, #ff6b00 0%, #e2e8f0 100%);
-}
-
-@media (min-width: 768px) {
-  .timeline-line {
-    left: 50%;
-    transform: translateX(-50%);
-  }
+/* ─── Brass Ledger Stamp / Seal Badge ───────────────────────────────────────── */
+.ledger-stamp {
+  @apply inline-flex items-center gap-2 border border-[#B8860B]/40 bg-[#F4EFE0] px-3 py-1 text-[0.75rem] font-mono font-semibold uppercase tracking-wider text-[#8C6608];
+  border-radius: 2px;
 }
 
 /* ─── Reduced Motion ────────────────────────────────────────────────────────── */
@@ -167,4 +166,5 @@ img, svg {
     scroll-behavior: auto !important;
   }
 }
+
 
